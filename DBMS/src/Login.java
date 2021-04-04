@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-class login extends JFrame{
+class Login extends JFrame{
 		JLabel l1,l2,l3,l4;
 		JTextField t1,t4;
 		JPasswordField t2;
 		JButton b1;
-		login(){
+		Login(){
 			Font f=new Font("Arial",Font.BOLD,24);
 			l1=new JLabel("Login Page");
 			l1.setFont(f);
@@ -40,6 +40,6 @@ class login extends JFrame{
 			});
 		}
 	public static void main(String[] args){
-		login Login=new login();
+		Login login=new Login();
 	}
 }
