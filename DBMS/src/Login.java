@@ -34,17 +34,20 @@ class Login extends JFrame{
 			comboBox = new JComboBox(designation);
 			comboBox.setBounds(70, 259, 200, 30);
 			getContentPane().add(comboBox);
+			
+			JLabel lblNewLabel = new JLabel("Designation");
+			lblNewLabel.setBounds(70, 241, 76, 14);
+			getContentPane().add(lblNewLabel);
 			setVisible(true);
-			setSize(400,400);
+			setSize(400,401);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			b1.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
-					System.out.println(t1.getText());
-					System.out.println(t2.getText());
+					
 				}
 			});
 		}
-	public static void main(String[] args){
-		Login login=new Login();
-	}
+	//public static void main(String[] args){
+		//Login login=new Login();
+	//}
 }
