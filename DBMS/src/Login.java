@@ -7,6 +7,7 @@ class Login extends JFrame{
 		JTextField t1,t4;
 		JPasswordField t2;
 		JButton b1;
+		JComboBox comboBox;
 		Login(){
 			Font f=new Font("Arial",Font.BOLD,24);
 			l1=new JLabel("Login Page");
@@ -29,6 +30,10 @@ class Login extends JFrame{
 			getContentPane().add(t2);
 			getContentPane().add(b1);
 			getContentPane().setLayout(null);
+			String[] designation= {"Teacher","Student","Administration" };
+			comboBox = new JComboBox(designation);
+			comboBox.setBounds(70, 259, 200, 30);
+			getContentPane().add(comboBox);
 			setVisible(true);
 			setSize(400,400);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
