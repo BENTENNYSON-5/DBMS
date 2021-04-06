@@ -75,6 +75,11 @@ public class Teacher extends JFrame {
 		tea_CourseDetails.setBounds(0, 120, 186, 60);
 		tea_contentPanel2.add(tea_CourseDetails);
 		
+		JButton tea_LogOut = new JButton("LOG OUT");
+		tea_LogOut.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		tea_LogOut.setBounds(0, 510, 186, 60);
+		tea_contentPanel2.add(tea_LogOut);
+		
 		JPanel tea_contentPanel1 = new JPanel();
 		tea_contentPanel1.setBackground(new Color(127, 255, 0));
 		tea_contentPanel1.setBounds(0, 65, 186, 45);
