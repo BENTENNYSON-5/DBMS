@@ -16,14 +16,14 @@ public class Admin extends JFrame{
 		adm_lb_1.setBounds(10, 10, 1234, 55);
 		getContentPane().add(adm_lb_1);
 		
-		JButton btnNewButton_4 = new JButton("Students");
-		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton vstu = new JButton("Students");
+		vstu.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		vstu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_4.setBounds(365, 206, 215, 102);
-		getContentPane().add(btnNewButton_4);
+		vstu.setBounds(365, 206, 215, 102);
+		getContentPane().add(vstu);
 		
 		JLabel adm_lb_2 = new JLabel("View");
 		adm_lb_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -31,10 +31,10 @@ public class Admin extends JFrame{
 		adm_lb_2.setBounds(264, 77, 118, 90);
 		getContentPane().add(adm_lb_2);
 		
-		JButton btnNewButton_4_3 = new JButton("Teachers");
-		btnNewButton_4_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton_4_3.setBounds(76, 206, 215, 102);
-		getContentPane().add(btnNewButton_4_3);
+		JButton vtea = new JButton("Teachers");
+		vtea.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		vtea.setBounds(76, 206, 215, 102);
+		getContentPane().add(vtea);
 		
 		JLabel adm_lb_3 = new JLabel("Change");
 		adm_lb_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -42,44 +42,49 @@ public class Admin extends JFrame{
 		adm_lb_3.setBounds(879, 77, 165, 90);
 		getContentPane().add(adm_lb_3);
 		
-		JButton btnNewButton_4_3_1 = new JButton("TAs");
-		btnNewButton_4_3_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton_4_3_1.setBounds(76, 368, 215, 102);
-		getContentPane().add(btnNewButton_4_3_1);
+		JButton vtas = new JButton("TAs");
+		vtas.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		vtas.setBounds(76, 368, 215, 102);
+		getContentPane().add(vtas);
 		
-		JButton btnNewButton_4_3_3 = new JButton("Courses");
-		btnNewButton_4_3_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton_4_3_3.setBounds(365, 368, 215, 102);
-		getContentPane().add(btnNewButton_4_3_3);
+		JButton vcou = new JButton("Courses");
+		vcou.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		vcou.setBounds(365, 368, 215, 102);
+		getContentPane().add(vcou);
 		
-		JButton btnNewButton_4_3_5 = new JButton("Alter Course Details");
-		btnNewButton_4_3_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_4_3_5.setBounds(705, 368, 215, 102);
-		getContentPane().add(btnNewButton_4_3_5);
+		JButton chcou = new JButton("Alter Course Details");
+		chcou.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		chcou.setBounds(705, 372, 215, 102);
+		getContentPane().add(chcou);
 		
-		JButton btnNewButton_4_3_6 = new JButton("Recruit Teachers");
-		btnNewButton_4_3_6.addActionListener(new ActionListener() {
+		JButton chtea = new JButton("Recruit Teachers");
+		chtea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_4_3_6.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		btnNewButton_4_3_6.setBounds(705, 206, 215, 102);
-		getContentPane().add(btnNewButton_4_3_6);
+		chtea.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		chtea.setBounds(705, 206, 215, 102);
+		getContentPane().add(chtea);
 		
-		JButton btnNewButton_4_3_2 = new JButton("Allot TAs");
-		btnNewButton_4_3_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton_4_3_2.setBounds(999, 206, 215, 102);
-		getContentPane().add(btnNewButton_4_3_2);
+		JButton chtas = new JButton("Allot TAs");
+		chtas.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		chtas.setBounds(999, 206, 215, 102);
+		getContentPane().add(chtas);
 		
-		JButton btnNewButton_4_3_4 = new JButton("Manage Events");
-		btnNewButton_4_3_4.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		btnNewButton_4_3_4.setBounds(999, 368, 215, 102);
-		getContentPane().add(btnNewButton_4_3_4);
+		JButton chevent = new JButton("Manage Events");
+		chevent.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		chevent.setBounds(999, 368, 215, 102);
+		getContentPane().add(chevent);
 		
-		JButton btnNewButton_4_3_7 = new JButton("Events");
-		btnNewButton_4_3_7.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnNewButton_4_3_7.setBounds(224, 536, 215, 102);
-		getContentPane().add(btnNewButton_4_3_7);
+		JButton vevent = new JButton("Events");
+		vevent.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		vevent.setBounds(76, 535, 215, 102);
+		getContentPane().add(vevent);
+		
+		JButton vjani = new JButton("Janitors");
+		vjani.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		vjani.setBounds(365, 535, 215, 102);
+		getContentPane().add(vjani);
 	}
 
 	public static void main(String[] args) {
