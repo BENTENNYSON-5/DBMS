@@ -10,10 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTable;
+import javax.swing.border.LineBorder;
 
 public class teacher_timetable extends JFrame {
 
 	private JPanel contentPane;
+	private JTable timetable_table;
 
 	/**
 	 * Launch the application.
@@ -40,8 +43,8 @@ public class teacher_timetable extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel tea2_headingPanel = new JPanel();
 		tea2_headingPanel.setBackground(Color.YELLOW);
@@ -99,14 +102,13 @@ public class teacher_timetable extends JFrame {
 		contentPane.add(tea2_MainPanel);
 		tea2_MainPanel.setLayout(null);
 		
-		//on clicking profile
-		tea2_profile.addActionListener(new ActionListener(){  
-		    public void actionPerformed(ActionEvent e){
-		    		
-		    	new Teacher();
-		            
-		    }  
-		    });
+		timetable_table = new JTable();
+		timetable_table.setBounds(69, 52, 944, 509);
+		tea2_MainPanel.add(timetable_table);
+		
+		JLabel timetable_label = new JLabel("Time Table");
+		timetable_label.setFont(new Font("Tahoma", Font.BOLD, 30));
+		timetable_label.setBounds(438, 10, 166, 37);
+		tea2_MainPanel.add(timetable_label);
 	}
-
 }
