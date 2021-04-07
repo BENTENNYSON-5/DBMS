@@ -51,8 +51,8 @@ public class Teacher extends JFrame {
 		contentPane.add(tea_headingPanel);
 		tea_headingPanel.setLayout(null);
 		
-		JLabel tea_heading = new JLabel("Random College Mangement Sysytem ");
-		tea_heading.setBounds(255, 10, 743, 46);
+		JLabel tea_heading = new JLabel("Teacher's Management System ");
+		tea_heading.setBounds(335, 10, 614, 46);
 		tea_heading.setForeground(Color.RED);
 		tea_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
 		tea_headingPanel.add(tea_heading);

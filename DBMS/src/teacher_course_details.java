@@ -51,8 +51,8 @@ public class teacher_course_details extends JFrame {
 		contentPane.add(tea3_headingPanel);
 		tea3_headingPanel.setLayout(null);
 		
-		JLabel tea3_heading = new JLabel("Random College Mangement Sysytem ");
-		tea3_heading.setBounds(255, 10, 743, 46);
+		JLabel tea3_heading = new JLabel("Teacher's Management System");
+		tea3_heading.setBounds(335, 10, 743, 46);
 		tea3_heading.setForeground(Color.RED);
 		tea3_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
 		tea3_headingPanel.add(tea3_heading);

@@ -52,8 +52,8 @@ public class teacher_timetable extends JFrame {
 		contentPane.add(tea2_headingPanel);
 		tea2_headingPanel.setLayout(null);
 		
-		JLabel tea2_heading = new JLabel("Random College Mangement Sysytem ");
-		tea2_heading.setBounds(255, 10, 743, 46);
+		JLabel tea2_heading = new JLabel("Teacher's Management System");
+		tea2_heading.setBounds(335, 10, 743, 46);
 		tea2_heading.setForeground(Color.RED);
 		tea2_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
 		tea2_headingPanel.add(tea2_heading);
