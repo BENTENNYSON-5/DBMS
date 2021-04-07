@@ -7,8 +7,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 
@@ -30,6 +29,8 @@ public class Teacher extends JFrame {
 				}
 			}
 		});
+		
+		 
 	}
 
 	/**
@@ -154,54 +155,70 @@ public class Teacher extends JFrame {
 		profile_name_pane.setText("TNAME");
 		profile_name_pane.setBounds(250, 57, 624, 20);
 		tea_MainPanel.add(profile_name_pane);
+		profile_name_pane.setEditable(false);
 		
 		JTextPane Profile_Lname_pane = new JTextPane();
 		Profile_Lname_pane.setText("TLNAME");
 		Profile_Lname_pane.setBounds(250, 97, 624, 20);
 		tea_MainPanel.add(Profile_Lname_pane);
+		Profile_Lname_pane.setEditable(false);
 		
 		JTextPane profile_age_pane = new JTextPane();
 		profile_age_pane.setText("TAGE");
 		profile_age_pane.setBounds(250, 137, 624, 20);
 		tea_MainPanel.add(profile_age_pane);
+		profile_age_pane.setEditable(false);
 		
 		JTextPane profile_id_pane = new JTextPane();
 		profile_id_pane.setText("TID");
 		profile_id_pane.setBounds(250, 177, 624, 20);
 		tea_MainPanel.add(profile_id_pane);
+		profile_id_pane.setEditable(false);
 		
 		JTextPane profile_course_pane = new JTextPane();
 		profile_course_pane.setText("Course name");
 		profile_course_pane.setBounds(250, 217, 624, 20);
 		tea_MainPanel.add(profile_course_pane);
+		profile_course_pane.setEditable(false);
 		
 		JTextPane profile_department_pane = new JTextPane();
 		profile_department_pane.setText("DEpartment Name");
 		profile_department_pane.setBounds(250, 257, 624, 20);
 		tea_MainPanel.add(profile_department_pane);
+		profile_department_pane.setEditable(false);
 		
 		JTextPane profile_salary_pane = new JTextPane();
 		profile_salary_pane.setText("TSAL");
 		profile_salary_pane.setBounds(250, 297, 624, 20);
 		tea_MainPanel.add(profile_salary_pane);
+		profile_salary_pane.setEditable(false);
 		
 		JTextPane profile_dno_pane = new JTextPane();
 		profile_dno_pane.setText("TDNO");
 		profile_dno_pane.setBounds(250, 337, 624, 20);
 		tea_MainPanel.add(profile_dno_pane);
+		profile_dno_pane.setEditable(false);
 		
 		JTextPane profile_street_pane = new JTextPane();
 		profile_street_pane.setText("TSTR");
 		profile_street_pane.setBounds(250, 377, 624, 20);
 		tea_MainPanel.add(profile_street_pane);
+		profile_street_pane.setEditable(false);
 		
 		JTextPane profile_city_pane = new JTextPane();
 		profile_city_pane.setText("TCITY");
 		profile_city_pane.setBounds(250, 417, 624, 20);
 		tea_MainPanel.add(profile_city_pane);
+		profile_city_pane.setEditable(false);
 		
 		
-		//on clicking profile
+		//on clicking timetable
+		tea_TimeTable.addActionListener(new ActionListener(){  
+		    public void actionPerformed(ActionEvent e){
+		        new teacher_timetable();
+		    }  
+		    });
+		//on clicking course details
 		
 	}
 }
