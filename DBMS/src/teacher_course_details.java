@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -118,6 +120,19 @@ public class teacher_course_details extends JFrame {
 		table = new JTable();
 		table.setBounds(69, 131, 944, 441);
 		tea3_MainPanel.add(table);
+		
+		//on clicking profile
+			tea3_profile.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			        new Teacher();
+			    }  
+			    });
+		//on clicking timetable
+			tea3_TimeTable.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			        new teacher_timetable();
+			    }  
+			    });
 		
 	}
 }

@@ -110,5 +110,19 @@ public class teacher_timetable extends JFrame {
 		timetable_label.setFont(new Font("Tahoma", Font.BOLD, 30));
 		timetable_label.setBounds(438, 10, 166, 37);
 		tea2_MainPanel.add(timetable_label);
+		
+		//on clicking profile
+		tea2_profile.addActionListener(new ActionListener(){  
+		    public void actionPerformed(ActionEvent e){
+		        new Teacher();
+		    }  
+		    });
+		
+		//on clicking course details
+		tea2_CourseDetails.addActionListener(new ActionListener(){  
+		    public void actionPerformed(ActionEvent e){
+		        new teacher_course_details();
+		    }  
+		    });
 	}
 }

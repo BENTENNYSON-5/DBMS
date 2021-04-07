@@ -219,6 +219,11 @@ public class Teacher extends JFrame {
 		    }  
 		    });
 		//on clicking course details
+		tea_CourseDetails.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new teacher_course_details();
+			}
+			});
 		
 	}
 }
