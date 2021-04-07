@@ -66,7 +66,7 @@ public class ta2_students_details extends JFrame {
 		ta2_profile.setBounds(0, 0, 186, 60);
 		ta2_contentPanel2.add(ta2_profile);
 		
-		JButton ta2_TimeTable = new JButton("Students Details");
+		JButton ta2_TimeTable = new JButton("Student's Marks");
 		ta2_TimeTable.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		ta2_TimeTable.setBounds(0, 60, 186, 60);
 		ta2_contentPanel2.add(ta2_TimeTable);
@@ -93,16 +93,53 @@ public class ta2_students_details extends JFrame {
 		contentPane.add(ta2_MainPanel);
 		ta2_MainPanel.setLayout(null);
 		
-		JLabel ta2coursename_label = new JLabel("Course Assigned");
-		ta2coursename_label.setFont(new Font("Lato Semibold", Font.PLAIN, 20));
-		ta2coursename_label.setBounds(80, 50, 170, 40);
-		ta2_MainPanel.add(ta2coursename_label);
+		JLabel ta2_course_label = new JLabel("Course");
+		ta2_course_label.setForeground(Color.BLACK);
+		ta2_course_label.setBackground(Color.WHITE);
+		ta2_course_label.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		ta2_course_label.setBounds(133, 77, 93, 37);
+		ta2_MainPanel.add(ta2_course_label);
 		
-		JTextPane ta2coursename_pane = new JTextPane();
-		ta2coursename_pane.setText("TANAME");
-		ta2coursename_pane.setBounds(250, 57, 624, 20);
-		ta2_MainPanel.add(ta2coursename_pane);
-		ta2coursename_pane.setEditable(false);
+		JTextPane ta2_course_pane = new JTextPane();
+		ta2_course_pane.setBackground(new Color(224, 255, 255));
+		ta2_course_pane.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		ta2_course_pane.setText("Course Name");
+		ta2_course_pane.setEditable(false);
+		ta2_course_pane.setBounds(402, 71, 187, 43);
+		ta2_MainPanel.add(ta2_course_pane);
+		
+		JLabel ta2_studentID_label = new JLabel("Student I.D");
+		ta2_studentID_label.setForeground(Color.BLACK);
+		ta2_studentID_label.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		ta2_studentID_label.setBackground(Color.WHITE);
+		ta2_studentID_label.setBounds(133, 174, 155, 37);
+		ta2_MainPanel.add(ta2_studentID_label);
+		
+		JTextPane ta2_studentID_pane = new JTextPane();
+		ta2_studentID_pane.setText("SNO");
+		ta2_studentID_pane.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		ta2_studentID_pane.setBackground(Color.WHITE);
+		ta2_studentID_pane.setBounds(402, 168, 187, 43);
+		ta2_MainPanel.add(ta2_studentID_pane);
+		
+		JLabel ta2_marks_label = new JLabel("Marks Obtained");
+		ta2_marks_label.setForeground(Color.BLACK);
+		ta2_marks_label.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		ta2_marks_label.setBackground(Color.WHITE);
+		ta2_marks_label.setBounds(133, 271, 210, 37);
+		ta2_MainPanel.add(ta2_marks_label);
+		
+		JTextPane ta2_marks_pane = new JTextPane();
+		ta2_marks_pane.setText("M1 or M2 or..M5, based on how you give subject numbers");
+		ta2_marks_pane.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		ta2_marks_pane.setBackground(Color.WHITE);
+		ta2_marks_pane.setBounds(402, 265, 187, 43);
+		ta2_MainPanel.add(ta2_marks_pane);
+		
+		JButton ta2_add_button = new JButton("Add");
+		ta2_add_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		ta2_add_button.setBounds(251, 406, 186, 60);
+		ta2_MainPanel.add(ta2_add_button);
 		
 		
 	}
