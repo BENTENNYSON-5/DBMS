@@ -108,6 +108,12 @@ public class ta extends JFrame {
 		ta_LogOut.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		ta_LogOut.setBounds(0, 510, 186, 60);
 		ta_contentPanel2.add(ta_LogOut);
+		ta_LogOut.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				new Login();
+				dispose();
+			}
+		});
 		
 		JPanel ta_contentPanel1 = new JPanel();
 		ta_contentPanel1.setBackground(new Color(127, 255, 0));
