@@ -30,7 +30,7 @@ class Login extends JFrame{
 			getContentPane().add(t2);
 			getContentPane().add(b1);
 			getContentPane().setLayout(null);
-			String[] designation= {"Teacher","Student","Administration" };
+			String[] designation= {"Teacher","Student","Administration","Teaching Assistant" };
 			comboBox = new JComboBox(designation);
 			comboBox.setBounds(70, 259, 200, 30);
 			getContentPane().add(comboBox);
