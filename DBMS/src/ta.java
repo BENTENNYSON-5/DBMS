@@ -56,7 +56,7 @@ public class ta extends JFrame {
 		ta_profile_panel.setLayout(null);
 		
 		JPanel ta_studentsmarks_panel = new JPanel();
-		ta_studentsmarks_panel.setBackground(Color.ORANGE);
+		ta_studentsmarks_panel.setBackground(Color.CYAN);
 		ta_layeredPane.add(ta_studentsmarks_panel, "name_349237760040100");
 		ta_studentsmarks_panel.setLayout(null);
 		

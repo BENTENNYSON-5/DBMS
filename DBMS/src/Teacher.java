@@ -58,12 +58,12 @@ public class Teacher extends JFrame {
 		tea_layeredPane.add(tea_profile_panel, "name_332569207428300");
 		
 		JPanel tea_timetable_panel = new JPanel();
-		tea_timetable_panel.setBackground(Color.GREEN);
+		tea_timetable_panel.setBackground(Color.CYAN);
 		tea_layeredPane.add(tea_timetable_panel, "name_332525239451000");
 		tea_timetable_panel.setLayout(null);
 		
 		JPanel tea_coursedetails_panel = new JPanel();
-		tea_coursedetails_panel.setBackground(Color.ORANGE);
+		tea_coursedetails_panel.setBackground(Color.CYAN);
 		tea_layeredPane.add(tea_coursedetails_panel, "name_332625872803200");
 		tea_coursedetails_panel.setLayout(null);
 		tea_profile_panel.setLayout(null);
