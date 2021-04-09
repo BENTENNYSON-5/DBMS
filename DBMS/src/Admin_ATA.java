@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Admin_ATA extends JFrame {
 
@@ -85,6 +87,14 @@ public class Admin_ATA extends JFrame {
 		contentPane.add(ATAremovecnotf);
 		
 		JButton ATAremovedone = new JButton("Done");
+		ATAremovedone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		ATAremovedone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		ATAremovedone.setBounds(345, 427, 121, 50);
 		contentPane.add(ATAremovedone);
@@ -134,6 +144,14 @@ public class Admin_ATA extends JFrame {
 		contentPane.add(ATAaddsaltf);
 		
 		JButton ATAadddone = new JButton("Done");
+		ATAadddone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		ATAadddone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		ATAadddone.setBounds(953, 564, 121, 50);
 		contentPane.add(ATAadddone);

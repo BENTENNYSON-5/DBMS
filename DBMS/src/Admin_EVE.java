@@ -10,6 +10,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Admin_EVE extends JFrame {
 
@@ -75,6 +77,14 @@ public class Admin_EVE extends JFrame {
 		contentPane.add(lblNewLabel_1_2);
 		
 		JButton EVEcanceldone = new JButton("Done");
+		EVEcanceldone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		EVEcanceldone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		EVEcanceldone.setBounds(306, 251, 121, 50);
 		contentPane.add(EVEcanceldone);
@@ -115,6 +125,14 @@ public class Admin_EVE extends JFrame {
 		contentPane.add(lblNewLabel_1_2_5);
 		
 		JButton EVEaddevent = new JButton("ADD EVENT");
+		EVEaddevent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		EVEaddevent.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		EVEaddevent.setBounds(1009, 604, 169, 58);
 		contentPane.add(EVEaddevent);

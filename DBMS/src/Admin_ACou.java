@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Admin_ACou extends JFrame {
 
@@ -81,6 +83,14 @@ public class Admin_ACou extends JFrame {
 		contentPane.add(AACID);
 		
 		JButton AACDone = new JButton("Done");
+		AACDone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		AACDone.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		AACDone.setBounds(660, 564, 153, 52);
 		contentPane.add(AACDone);

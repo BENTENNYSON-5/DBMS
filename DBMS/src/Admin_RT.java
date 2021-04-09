@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Admin_RT extends JFrame {
 
@@ -131,11 +133,27 @@ public class Admin_RT extends JFrame {
 		contentPane.add(RTaddsaltf);
 		
 		JButton RTremovedone = new JButton("Done");
+		RTremovedone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		RTremovedone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		RTremovedone.setBounds(304, 269, 121, 50);
 		contentPane.add(RTremovedone);
 		
 		JButton RTadddone = new JButton("Done");
+		RTadddone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//querycode
+				Admin AD = new Admin();
+				AD.setVisible(true);
+				dispose();
+			}
+		});
 		RTadddone.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		RTadddone.setBounds(944, 607, 121, 50);
 		contentPane.add(RTadddone);
