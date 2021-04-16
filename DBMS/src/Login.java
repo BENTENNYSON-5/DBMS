@@ -1,7 +1,14 @@
 import javax.swing.*;
+import java.awt.*;
+
+
+
 import java.awt.Font;
-import java.awt.event.ActionListener;
+import java.awt.desktop.PrintFilesEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.CardLayout;
+import java.sql.*;
 class Login extends JFrame{
 		JLabel login_page_label,userid_label,password_label,l4;
 		JTextField userid,t4;
@@ -44,10 +51,54 @@ class Login extends JFrame{
 			login_button2.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
 					
-				}
-			});
+					ResultSet rs;
+					try 
+					{
+						//int i=1;
+						//boolean bool=true;
+						Class.forName("oracle.jdbc.driver.OracleDriver");
+						Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "\"Chintu2@\"");
+						Statement st=con.createStatement();
+						String sql="select * from login_cred";
+						rs=st.executeQuery(sql);
+						//rs.next();
+						while(rs.next())
+						{
+							//System.out.println("hjelolo");
+							String dum1=userid.getText(),dum2=rs.getString(1);
+							//System.out.println(dum1);
+							if(dum1.equals(dum2));
+							{
+								//System.out.println("hjelolo");
+								if((comboBox.getSelectedItem().toString()).equals("Student"))
+								{
+									//int dum3;
+									//dum3=Integer.parseInt(dum1);
+									//System.out.println("hjelolo");
+									con.close();
+									new student(dum1);
+									//rs.absolute(1);
+									//con.close();
+									break;
+									
+								}
+								
+							}
+							
+							
+							
+							
+						}
+						dispose();
+				    }
+					catch (Exception e) {
+						System.out.print(e);
+					}
+			
 		}
 	//public static void main(String[] args){
 		//Login login=new Login();
 	//}
+});
+		}
 }
