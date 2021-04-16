@@ -188,12 +188,52 @@ public class student extends JFrame {
 			JPanel panel_2 = new JPanel();
 			student_layeredPane.add(panel_2, "name_164213488408800");
 			
-			JPanel panel_3 = new JPanel();
-			student_layeredPane.add(panel_3, "name_164213527612100");
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			JPanel student_event_panel = new JPanel();
+			student_layeredPane.add(student_event_panel, "name_164213527612100");
+			student_event_panel.setLayout(null);
+			
+			JTextArea event_area = new JTextArea();
+			event_area.setBounds(10, 125, 1044, 305);
+			student_event_panel.add(event_area);
+			rs=st.executeQuery("select * from event");
+			for(int i=0;i<5;i++)
+			{
+				event_area.setText("\n");
+			}
+			while(rs.next())
+			{
+				event_area.setText("Name: "+rs.getString(2)+"   Start date:   "+rs.getString(3)+"   End Date:   "+rs.getString(4)+"   Fee:   "+rs.getInt(5)+" "+"\n");
+			}
+			student_events.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			    	student_layeredPane.removeAll();
+			    	student_layeredPane.add(student_event_panel);
+			    	student_layeredPane.repaint();
+			    	student_layeredPane.revalidate();    
+			    }  
+			    });
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			JPanel panel = new JPanel();
 			student_layeredPane.add(panel, "name_164213581621300");
-			rs.absolute(1);
 			con.close();
 			
 		} 
@@ -204,13 +244,4 @@ public class student extends JFrame {
 		
 		
 	}
-	/*public static void main(String [] args) 
-	{
-		
-		int str2=21002;
-		student st=new student(str2);
-		
-		
-		
-	}*/
 }
