@@ -185,10 +185,39 @@ public class student extends JFrame {
 			    }  
 			    });
 			
-			JPanel panel_2 = new JPanel();
-			student_layeredPane.add(panel_2, "name_164213488408800");
 			
 			
+			
+			
+			
+			
+			JPanel student_grades_panel = new JPanel();
+			student_layeredPane.add(student_grades_panel, "name_164213488408800");
+			student_grades_panel.setLayout(null);
+			
+			JTextArea grades_area = new JTextArea();
+			grades_area.setBounds(91, 94, 967, 333);
+			student_grades_panel.add(grades_area);
+			
+			rs=st.executeQuery("select * from marks");
+			for(int i=0;i<5;i++)
+			{
+				grades_area.setText("\n");
+			}
+			while(rs.next())
+			{
+				str.equals(""+rs.getInt(1));
+				break;
+			}
+			grades_area.setText("Maths "+rs.getInt(2)+"   Physics   "+rs.getInt(3)+"   Chemistry   "+rs.getString(4)+"   English   "+rs.getInt(5)+"  German  "+rs.getInt(6));
+			student_grades.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			    	student_layeredPane.removeAll();
+			    	student_layeredPane.add(student_grades_panel);
+			    	student_layeredPane.repaint();
+			    	student_layeredPane.revalidate();    
+			    }  
+			    });
 			
 			
 			
