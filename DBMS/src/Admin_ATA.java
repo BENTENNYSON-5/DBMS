@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+//code
 public class Admin_ATA extends JFrame {
 
 	private JPanel contentPane;

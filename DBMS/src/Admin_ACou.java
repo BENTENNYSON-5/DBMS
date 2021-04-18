@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+//code
 public class Admin_ACou extends JFrame {
 
 	private JPanel contentPane;
