@@ -16,8 +16,8 @@ import java.awt.event.ActionEvent;
 public class Admin_View extends JFrame {
 
 	protected JPanel contentPane;
-	protected JTable table;
 	protected JButton Ad_v_edit;
+	protected JPanel jjpanel;
 
 	/**
 	 * Launch the application.
@@ -46,9 +46,6 @@ public class Admin_View extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		table = new JTable();
-		table.setBounds(200, 87, 1056, 586);
-		contentPane.add(table);
 		
 		Ad_v_edit = new JButton("EDIT");
 		Ad_v_edit.addActionListener(new ActionListener() {
@@ -89,5 +86,9 @@ public class Admin_View extends JFrame {
 		Ad_v_back.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		Ad_v_back.setBounds(27, 545, 152, 59);
 		contentPane.add(Ad_v_back);
+		
+		jjpanel = new JPanel();
+		jjpanel.setBounds(189, 162, 1067, 511);
+		contentPane.add(jjpanel);
 	}
 }

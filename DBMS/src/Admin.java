@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.sql.*;
+import javax.swing.table.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -20,6 +22,9 @@ public class Admin extends JFrame{
 		vstu.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		vstu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//done
+				String[][] data = new String[60][7];
+				int i = 0;
 				s = "STUDENTS ";
 				Admin_View adv = new Admin_View();
 				JLabel Ad_v_info_label = new JLabel(s + "INFORMATION");
@@ -31,6 +36,38 @@ public class Admin extends JFrame{
 				adv.contentPane.add(Ad_v_info_label);
 				adv.Ad_v_edit.setVisible(false);
 				//querycodetable
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String sql = "select sid,sname,sage,sdno,sstr,scity,bname from student,bhavan where bvno = bid";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+			    	String stt[] = {"sid","sname","sage","sdno","sstr","scity","bname"};//column names
+				    while(rs.next()){
+						String st1 = String.valueOf(rs.getInt("sid"));
+						String st2=rs.getString("sname");
+						String st3 = String.valueOf(rs.getInt("sage"));
+						String st4 = String.valueOf(rs.getInt("sdno"));
+						String st5 = rs.getString("sstr");
+						String st6 = rs.getString("scity");
+						String st7 = rs.getString("bname");
+                        data[i][0]= st1;
+                        data[i][1]= st2;
+                        data[i][2]= st3;
+                        data[i][3]= st4;
+                        data[i][4]= st5;
+                        data[i][5]= st6;
+                        data[i][6]= st7;
+                        i++;
+				    }
+				    JTable table = new JTable(data,stt){
+				        public boolean isCellEditable(int row, int column) {                
+				                return false;               
+				        };
+				    };
+                    JScrollPane jsp = new JScrollPane(table);
+					adv.jjpanel.add(jsp);
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				adv.setVisible(true);
 				dispose();
 			}
@@ -47,6 +84,9 @@ public class Admin extends JFrame{
 		JButton vtea = new JButton("Teachers");
 		vtea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//done
+				String[][] data = new String[12][10];
+				int i =0;
 				s = "TEACHERS ";
 				Admin_View adv = new Admin_View();
 				JLabel Ad_v_info_label = new JLabel(s + "INFORMATION");
@@ -57,6 +97,45 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setBounds(27, 10, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					//error
+					String sql = " select tid,tname,tlname,tdno,tstr,tcity,tage,tsal,cname,dname from teacher ,course ,depnt where cono  = cid and depntno = depntid";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+			    	String stt[] = {"tid","tname","tlname","tdno","tstr","tcity","tage","tsal","cname","dname"};
+				    while(rs.next()){
+						String st1 = String.valueOf(rs.getInt("tid"));
+						String st2=rs.getString("tname");
+						String st3 = rs.getString("tlname");
+						String st4 = String.valueOf(rs.getInt("tage"));
+						String st5 = String.valueOf(rs.getInt("tdno"));
+						String st6 = rs.getString("tstr");
+						String st7 = rs.getString("tcity");
+						String st8 = rs.getString("tsal");
+						String st9 = rs.getString("cname");
+						String st10 = rs.getString("dname");
+                        data[i][0]= st1;
+                        data[i][1]= st2;
+                        data[i][2]= st3;
+                        data[i][3]= st4;
+                        data[i][4]= st5;
+                        data[i][5]= st6;
+                        data[i][6]= st7;
+                        data[i][7]= st8;
+                        data[i][8]= st9;
+                        data[i][9]= st10;
+                        i++;
+				    }
+				    JTable table = new JTable(data,stt){
+				        public boolean isCellEditable(int row, int column) {                
+				                return false;               
+				        };
+				    };
+                    JScrollPane jsp = new JScrollPane(table);
+					adv.jjpanel.add(jsp);
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				adv.setVisible(true);
 				dispose();
 			}
@@ -74,6 +153,8 @@ public class Admin extends JFrame{
 		JButton vtas = new JButton("TAs");
 		vtas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String[][] data = new String[10][4];
+				int i = 0;
 				s = "TAs ";
 				Admin_View adv = new Admin_View();
 				JLabel Ad_v_info_label = new JLabel(s + "INFORMATION");
@@ -84,6 +165,32 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setBounds(27, 10, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String sql = "select cname,taname,taage,tasal from course,teach_assistant where cno = cid";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+			    	String stt[] = {"cname","taname","taage","tasal"};//column names
+				    while(rs.next()){
+						String st1=rs.getString("cname");
+						String st2 = rs.getString("taname");
+						String st3 = String.valueOf(rs.getInt("taage"));
+						String st4 = String.valueOf(rs.getInt("tasal"));
+                        data[i][0]= st1;
+                        data[i][1]= st2;
+                        data[i][2]= st3;
+                        data[i][3]= st4;
+                        i++;
+				    }
+				    JTable table = new JTable(data,stt){
+				        public boolean isCellEditable(int row, int column) {                
+				                return false;               
+				        };
+				    };
+                    JScrollPane jsp = new JScrollPane(table);
+					adv.jjpanel.add(jsp);
+					conn.close();
+			}catch(Exception ex) {System.out.println(ex);}
 				adv.setVisible(true);
 				dispose();
 			}
@@ -95,6 +202,9 @@ public class Admin extends JFrame{
 		JButton vcou = new JButton("Courses");
 		vcou.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//done
+				String[][] data = new String[10][3];
+				int i = 0;
 				s = "COURSES ";
 				Admin_View adv = new Admin_View();
 				JLabel Ad_v_info_label = new JLabel(s + "INFORMATION");
@@ -105,6 +215,30 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setBounds(27, 10, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String sql = "select * from course";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+			    	String stt[] = {"cid","cname","credits"};
+				    while(rs.next()){
+						String st1 = String.valueOf(rs.getInt("cid"));
+						String st2=rs.getString("cname");
+						String st3 = String.valueOf(rs.getInt("credits"));
+                        data[i][0]= st1;
+                        data[i][1]= st2;
+                        data[i][2]= st3;
+                        i++;
+				    }
+				    JTable table = new JTable(data,stt){
+				        public boolean isCellEditable(int row, int column) {                
+				                return false;               
+				        };
+				    };
+                    JScrollPane jsp = new JScrollPane(table);
+					adv.jjpanel.add(jsp);
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				adv.setVisible(true);
 				dispose();
 			}
@@ -164,7 +298,10 @@ public class Admin extends JFrame{
 		JButton vevent = new JButton("Events");
 		vevent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				s = "EVENTS ";
+				//done
+				String[][] data = new String[20][6];
+				int i=0;
+				s = "EVENTS ";//only for this eco is displayed instead of student name
 				Admin_View adv = new Admin_View();
 				JLabel Ad_v_info_label = new JLabel(s + "INFORMATION");
 				Ad_v_info_label.setBackground(Color.YELLOW);
@@ -174,6 +311,36 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setBounds(27, 10, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String sql = "select * from event";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+			    	String stt[] = {"eid","ename","strdate","enddate","efee","eco"};
+				    while(rs.next()){
+						String eid = String.valueOf(rs.getInt("eid"));
+						String ename =rs.getString("ename");
+						String strdate = String.valueOf(rs.getDate("strdate"));
+						String enddate = String.valueOf(rs.getDate("enddate"));
+						String efee = String.valueOf(rs.getInt("efee"));
+						String eco = String.valueOf(rs.getInt("eco"));
+                        data[i][0]= eid;
+                        data[i][1]= ename;
+                        data[i][2]= strdate;
+                        data[i][3]= enddate;
+                        data[i][4]= efee;
+                        data[i][5]= eco;
+                        i++;
+				    }
+				    JTable table = new JTable(data,stt){
+				        public boolean isCellEditable(int row, int column) {                
+				                return false;               
+				        };
+				    };
+                    JScrollPane jsp = new JScrollPane(table);
+					adv.jjpanel.add(jsp);
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				adv.setVisible(true);
 				dispose();
 			}
@@ -185,6 +352,9 @@ public class Admin extends JFrame{
 		JButton vjani = new JButton("Janitors");
 		vjani.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//done
+				String[][] data = new String[6][5];
+				int i =0;
 				s = "JANITORS ";
 				Admin_View adv = new Admin_View();
 				JLabel Ad_v_info_label = new JLabel(s + "INFORMATION");
@@ -196,6 +366,34 @@ public class Admin extends JFrame{
 				adv.contentPane.add(Ad_v_info_label);
 				adv.Ad_v_edit.setVisible(false);
 				//querycodetable
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String sql = "select jid,jname,salary,age,bname from janitor, bhavan where bvid = bid";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+			    	String stt[] = {"jid","jname","salary","age","bname"};
+				    while(rs.next()){
+						String st1 = String.valueOf(rs.getInt("jid"));
+						String st2 =rs.getString("jname");
+						String st3 = String.valueOf(rs.getInt("salary"));
+						String st4 = String.valueOf(rs.getInt("age"));
+						String st5 = rs.getString("bname"); 
+						data[i][0]= st1;
+                        data[i][1]= st2;
+                        data[i][2]= st3;
+                        data[i][3]= st4;
+                        data[i][4]= st5;
+                        i++;
+				    }
+				    JTable table = new JTable(data,stt){
+				        public boolean isCellEditable(int row, int column) {                
+				                return false;               
+				        };
+				    };
+                    JScrollPane jsp = new JScrollPane(table);
+					adv.jjpanel.add(jsp);
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				adv.setVisible(true);
 				dispose();
 			}
