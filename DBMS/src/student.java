@@ -1,14 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-
-
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.CardLayout;
 import java.sql.*;
 public class student extends JFrame {
+	private JTextField joinevent_field;
 	public student(String str)   {
 		ResultSet rs;
 		try 
@@ -18,7 +16,7 @@ public class student extends JFrame {
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
-			Statement st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,/*ResultSet.CONCUR_READ_ONLY*/ResultSet.CONCUR_UPDATABLE);
+			Statement st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
 			String sql="select * from student";
 			rs=st.executeQuery(sql);
 			//rs.next();
@@ -37,29 +35,29 @@ public class student extends JFrame {
 			getContentPane().setLayout(null);
 			
 			JPanel student_content_panel2 = new JPanel();
-			student_content_panel2.setBounds(0, 110, 186, 570);
+			student_content_panel2.setBounds(0, 111, 202, 570);
 			getContentPane().add(student_content_panel2);
 			student_content_panel2.setLayout(null);
 			
 			JButton student_profile_button = new JButton("PROFILE");
 			student_profile_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_profile_button.setBounds(0, 0, 186, 45);
+			student_profile_button.setBounds(0, 0, 202, 45);
 			student_content_panel2.add(student_profile_button);
 			
 			JButton student_courses = new JButton("COURSES");
 			student_courses.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_courses.setBounds(0, 45, 186, 45);
+			student_courses.setBounds(0, 45, 202, 45);
 			student_content_panel2.add(student_courses);
 			
 			JButton student_events = new JButton("EVENTS");
 			student_events.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_events.setBounds(0, 90, 186, 45);
+			student_events.setBounds(0, 90, 202, 45);
 			student_content_panel2.add(student_events);
 			
 			
 			JButton student_grades = new JButton("GRADES");
 			student_grades.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_grades.setBounds(0, 135, 186, 45);
+			student_grades.setBounds(0, 135, 202, 45);
 			student_content_panel2.add(student_grades);
 			
 			JButton student_logout = new JButton("LOG OUT");
@@ -70,8 +68,13 @@ public class student extends JFrame {
 				}
 			});
 			student_logout.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_logout.setBounds(0, 525, 186, 45);
+			student_logout.setBounds(0, 525, 202, 45);
 			student_content_panel2.add(student_logout);
+			
+			JButton joinevents_button = new JButton("JOIN EVENTS");
+			joinevents_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
+			joinevents_button.setBounds(0, 180, 202, 45);
+			student_content_panel2.add(joinevents_button);
 			
 			JPanel student_heading = new JPanel();
 			student_heading.setBounds(0, 0, 1266, 65);
@@ -84,7 +87,7 @@ public class student extends JFrame {
 			student_heading.add(student_label_heading);
 			
 			JPanel student_content_panel1 = new JPanel();
-			student_content_panel1.setBounds(0, 65, 186, 45);
+			student_content_panel1.setBounds(0, 65, 202, 45);
 			getContentPane().add(student_content_panel1);
 			student_content_panel1.setLayout(null);
 			
@@ -244,7 +247,7 @@ public class student extends JFrame {
 			student_event_panel.setLayout(null);
 			
 			JTextArea event_area = new JTextArea();
-			event_area.setBounds(10, 125, 1044, 305);
+			event_area.setBounds(42, 126, 1012, 304);
 			student_event_panel.add(event_area);
 			rs=st.executeQuery("select * from event,stu_event where eno=eid and sno="+str);
 			while(rs.next())	
@@ -274,10 +277,29 @@ public class student extends JFrame {
 			student_courses_panel.setLayout(null);
 			
 			JTextArea student_courses_area = new JTextArea();
-			student_courses_area.setBounds(10, 11, 1043, 492);
+			student_courses_area.setBounds(27, 11, 1026, 492);
 			student_courses_panel.add(student_courses_area);
 			
-			rs=st.executeQuery("select * from stu_cour");
+			JPanel student_joinevents_panel = new JPanel();
+			student_layeredPane.add(student_joinevents_panel, "name_326041342741000");
+			student_joinevents_panel.setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("Enter event id");
+			lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 19));
+			lblNewLabel.setBounds(70, 68, 170, 40);
+			student_joinevents_panel.add(lblNewLabel);
+			
+			joinevent_field = new JTextField();
+			joinevent_field.setBounds(252, 77, 86, 30);
+			student_joinevents_panel.add(joinevent_field);
+			joinevent_field.setColumns(10);
+			
+			JButton student_joinevent_button = new JButton("JOIN EVENT");
+			student_joinevent_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 17));
+			student_joinevent_button.setBounds(414, 81, 170, 40);
+			student_joinevents_panel.add(student_joinevent_button);
+			
+			rs=st.executeQuery("select * from stu_cour,course where cid=cno and sno="+str);
 			
 			/*while(rs.next())
 			{
@@ -290,7 +312,7 @@ public class student extends JFrame {
 			{
 				if(str.equals(""+rs.getInt(1)))
 				{
-					student_courses_area.append("Course id:"+rs.getInt(2)+"\n");
+					student_courses_area.append("Course id:"+rs.getInt(2)+"  Course name:"+rs.getString(4)+"  Time:"+rs.getString(6)+"\n");
 				}
 			}
 			student_courses.addActionListener(new ActionListener(){  
@@ -302,11 +324,39 @@ public class student extends JFrame {
 			    }  
 			    });
 			
+			student_joinevent_button.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			    	ResultSet rs1;
+			    	try 
+			    	{
+			    		rs1=st.executeQuery("insert into stu_event values("+str+","+joinevent_field.getText()+")");
+					} 
+			    	catch (Exception e2) 
+			    	{
+						System.out.println(e2);
+					}
+			    	
+			    	
+			    }  
+			    });
 			
 			
 			
 			
-			con.close();
+			
+			
+			joinevents_button.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			    	student_layeredPane.removeAll();
+			    	student_layeredPane.add(student_joinevents_panel);
+			    	student_layeredPane.repaint();
+			    	student_layeredPane.revalidate();
+			    }  
+			    });
+			
+			
+			
+			//con.close();
 			
 		} 
 

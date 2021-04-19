@@ -12,32 +12,20 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class ta extends JFrame {
 
 	private JPanel ta_contentPane;
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ta frame = new ta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	 * Create the frame.
-	 */
-	public ta(String yy) {
+	private JLayeredPane ta_layeredPane;
+	private JPanel ta_profile_panel;
+	private JPanel ta_studentsmarks_panel;
+	public ta(String str) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		ta_contentPane = new JPanel();
@@ -45,21 +33,39 @@ public class ta extends JFrame {
 		setContentPane(ta_contentPane);
 		ta_contentPane.setLayout(null);
 		
-		JLayeredPane ta_layeredPane = new JLayeredPane();
+		ta_layeredPane = new JLayeredPane();
 		ta_layeredPane.setBounds(186, 65, 1080, 615);
 		ta_contentPane.add(ta_layeredPane);
 		ta_layeredPane.setLayout(new CardLayout(0, 0));
 		
-		JPanel ta_profile_panel = new JPanel();
+		ta_profile_panel = new JPanel();
 		ta_profile_panel.setBackground(Color.CYAN);
 		ta_layeredPane.add(ta_profile_panel, "name_349220811387700");
 		ta_profile_panel.setLayout(null);
 		
-		JPanel ta_studentsmarks_panel = new JPanel();
+		ta_studentsmarks_panel = new JPanel();
 		ta_studentsmarks_panel.setBackground(Color.CYAN);
 		ta_layeredPane.add(ta_studentsmarks_panel, "name_349237760040100");
 		ta_studentsmarks_panel.setLayout(null);
-		
+		String save = str;
+		ResultSet rs;
+		try 
+		{
+			int count=1;
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection connnn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
+			Statement st=connnn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			String sql="select taname, taage, tasal,cname,cno from teach_assistant,course where cno = cid";
+			rs=st.executeQuery(sql);
+			while(rs.next())
+			{
+				if(str.equals(""+rs.getInt(5)))
+				{
+					break;
+				}
+				
+			}
+			int ccc = rs.getInt(5);
 		JPanel ta_headingPanel = new JPanel();
 		ta_headingPanel.setBackground(Color.YELLOW);
 		ta_headingPanel.setBounds(0, 0, 1266, 65);
@@ -148,25 +154,25 @@ public class ta extends JFrame {
 		ta_profile_panel.add(tasalary_label);
 		
 		JTextPane taname_pane = new JTextPane();
-		taname_pane.setText("TANAME");
+		taname_pane.setText(rs.getString(1));
 		taname_pane.setBounds(250, 57, 624, 20);
 		ta_profile_panel.add(taname_pane);
 		taname_pane.setEditable(false);
 		
 		JTextPane taage_pane = new JTextPane();
-		taage_pane.setText("TAAGE");
+		taage_pane.setText(""+rs.getInt(2));
 		taage_pane.setBounds(250, 97, 624, 20);
 		ta_profile_panel.add(taage_pane);
 		taage_pane.setEditable(false);
 		
 		JTextPane tacourse_pane = new JTextPane();
-		tacourse_pane.setText("Course name");
+		tacourse_pane.setText(rs.getString(4));
 		tacourse_pane.setBounds(250, 137, 624, 20);
 		ta_profile_panel.add(tacourse_pane);
 		tacourse_pane.setEditable(false);
 		
 		JTextPane tasalary_pane = new JTextPane();
-		tasalary_pane.setText("TASAL");
+		tasalary_pane.setText(""+rs.getInt(3));
 		tasalary_pane.setBounds(250, 177, 624, 20);
 		ta_profile_panel.add(tasalary_pane);
 		tasalary_pane.setEditable(false);
@@ -181,7 +187,7 @@ public class ta extends JFrame {
 		JTextPane ta2_course_pane = new JTextPane();
 		ta2_course_pane.setBackground(Color.LIGHT_GRAY);
 		ta2_course_pane.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		ta2_course_pane.setText("Course Name");
+		ta2_course_pane.setText(rs.getString(4));
 		ta2_course_pane.setEditable(false);
 		ta2_course_pane.setBounds(402, 71, 187, 43);
 		ta_studentsmarks_panel.add(ta2_course_pane);
@@ -194,7 +200,6 @@ public class ta extends JFrame {
 		ta_studentsmarks_panel.add(ta2_studentID_label);
 		
 		JTextPane ta2_studentID_pane = new JTextPane();
-		ta2_studentID_pane.setText("SNO");
 		ta2_studentID_pane.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		ta2_studentID_pane.setBackground(Color.WHITE);
 		ta2_studentID_pane.setBounds(402, 168, 187, 43);
@@ -208,17 +213,56 @@ public class ta extends JFrame {
 		ta_studentsmarks_panel.add(ta2_marks_label);
 		
 		JTextPane ta2_marks_pane = new JTextPane();
-		ta2_marks_pane.setText("M1 or M2 or..M5, based on how you give subject numbers");
-		ta2_marks_pane.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		ta2_marks_pane.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		ta2_marks_pane.setBackground(Color.WHITE);
 		ta2_marks_pane.setBounds(402, 265, 187, 43);
 		ta_studentsmarks_panel.add(ta2_marks_pane);
 		
 		JButton ta2_add_button = new JButton("Add");
+		ta2_add_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String sno=ta2_studentID_pane.getText().toString();
+				String marks= ta2_marks_pane.getText().toString();
+				String sqll;
+				try {
+					switch(ccc) {
+					case 101: 	sqll = "update marks set M1 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 102: 	sqll= "update marks set M1 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 103: 	sqll = "update marks set M2 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 104: 	sqll = "update marks set M3 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 105: 	sqll = "update marks set M2 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 106: 	sqll = "update marks set M3 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 107: 	sqll = "update marks set M4 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 108: 	sqll = "update marks set M5 = "+ marks + "where sno = "+ sno ;
+					break;
+					case 109: 	sqll = "update marks set M5 = "+ marks + "where sno = "+ sno ;
+					break;
+                    default:    sqll = "update marks set M5 = "+ marks + "where sno = "+ sno ;
+
+					}
+				
+				PreparedStatement pss = connnn.prepareStatement(sqll);
+				ResultSet rss = pss.executeQuery();
+				ta2_studentID_pane.setText("");
+				ta2_marks_pane.setText("");
+				}catch(Exception eee) {
+					System.out.println(eee);
+				}
+			}
+		});
 		ta2_add_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		ta2_add_button.setBounds(251, 406, 186, 60);
 		ta_studentsmarks_panel.add(ta2_add_button);
-		
-		
+		}
+		catch (Exception e) {
+			System.out.print(e);
+		}
 	}
 }
