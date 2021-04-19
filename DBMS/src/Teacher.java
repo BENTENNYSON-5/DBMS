@@ -23,7 +23,7 @@ public class Teacher extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,10 +37,10 @@ public class Teacher extends JFrame {
 		});
 	}
 
-	/**
+	
 	 * Create the frame.
 	 */
-	public Teacher() {
+	public Teacher(String yy) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		tea_contentPane = new JPanel();

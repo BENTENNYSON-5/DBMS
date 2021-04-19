@@ -83,7 +83,8 @@ class Login extends JFrame{
 									//dum3=Integer.parseInt(dum1);
 									//System.out.println("hjelolo");
 									con.close();
-									new student(dum1);
+									student ssst = new student(dum1);
+									ssst.setVisible(true);
 									//rs.absolute(1);
 									//con.close();
 									break;
@@ -96,7 +97,8 @@ class Login extends JFrame{
 									//dum3=Integer.parseInt(dum1);
 									//System.out.println("hjelolo");
 									con.close();
-									new Teacher(dum1);
+									Teacher ssst = new Teacher(dum1);
+									ssst.setVisible(true);
 									//rs.absolute(1);
 									//con.close();
 									break;
@@ -108,7 +110,8 @@ class Login extends JFrame{
 									//dum3=Integer.parseInt(dum1);
 									//System.out.println("hjelolo");
 									con.close();
-									new Admin_View();
+									Admin ssst = new Admin();
+									ssst.setVisible(true);
 									//rs.absolute(1);
 									//con.close();
 									break;
@@ -120,7 +123,8 @@ class Login extends JFrame{
 									//dum3=Integer.parseInt(dum1);
 									//System.out.println("hjelolo");
 									con.close();
-									new ta(dum1);
+									ta ssst = new ta(dum1);
+									ssst.setVisible(true);
 									//rs.absolute(1);
 									//con.close();
 									break;

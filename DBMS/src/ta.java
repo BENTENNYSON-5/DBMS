@@ -20,7 +20,7 @@ public class ta extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,10 +34,10 @@ public class ta extends JFrame {
 		});
 	}
 
-	/**
+	
 	 * Create the frame.
 	 */
-	public ta() {
+	public ta(String yy) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		ta_contentPane = new JPanel();
