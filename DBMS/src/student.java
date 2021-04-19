@@ -138,36 +138,43 @@ public class student extends JFrame {
 			student_profile_panel.add(student_profile_city_label);
 			
 			JTextPane student_profile_name_pane = new JTextPane();
+			student_profile_name_pane.setEditable(false);
 			student_profile_name_pane.setText(rs.getString(2));
 			student_profile_name_pane.setBounds(250, 57, 624, 20);
 			student_profile_panel.add(student_profile_name_pane);
 			
 			JTextPane student_Profile_Lname_pane = new JTextPane();
+			student_Profile_Lname_pane.setEditable(false);
 			student_Profile_Lname_pane.setText(rs.getString(3));
 			student_Profile_Lname_pane.setBounds(250, 97, 624, 20);
 			student_profile_panel.add(student_Profile_Lname_pane);
 			
 			JTextPane student_profile_age_pane = new JTextPane();
+			student_profile_age_pane.setEditable(false);
 			student_profile_age_pane.setText(""+rs.getInt(8));
 			student_profile_age_pane.setBounds(250, 137, 624, 20);
 			student_profile_panel.add(student_profile_age_pane);
 			
 			JTextPane student_profile_id_pane = new JTextPane();
+			student_profile_id_pane.setEditable(false);
 			student_profile_id_pane.setText(""+rs.getInt(1));
 			student_profile_id_pane.setBounds(250, 177, 624, 20);
 			student_profile_panel.add(student_profile_id_pane);
 			
 			JTextPane student_profile_dno_pane = new JTextPane();
+			student_profile_dno_pane.setEditable(false);
 			student_profile_dno_pane.setText(""+rs.getInt(4));
 			student_profile_dno_pane.setBounds(250, 228, 624, 20);
 			student_profile_panel.add(student_profile_dno_pane);
 			
 			JTextPane student_profile_street_pane = new JTextPane();
+			student_profile_street_pane.setEditable(false);
 			student_profile_street_pane.setText(rs.getString(5));
 			student_profile_street_pane.setBounds(250, 281, 624, 20);
 			student_profile_panel.add(student_profile_street_pane);
 			
 			JTextPane student_profile_city_pane = new JTextPane();
+			student_profile_city_pane.setEditable(false);
 			student_profile_city_pane.setText(rs.getString(6));
 			student_profile_city_pane.setBounds(250, 335, 624, 20);
 			student_profile_panel.add(student_profile_city_pane);
@@ -178,14 +185,10 @@ public class student extends JFrame {
 			student_profile_panel.add(student_profile_bhavan_label);
 			
 			JTextPane student_profile_bhavan_pane = new JTextPane();
+			student_profile_bhavan_pane.setEditable(false);
 			student_profile_bhavan_pane.setText(""+rs.getInt(7));
 			student_profile_bhavan_pane.setBounds(250, 384, 624, 20);
 			student_profile_panel.add(student_profile_bhavan_pane);
-			
-			JButton update_button = new JButton("UPDATE");
-			update_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			update_button.setBounds(846, 531, 186, 45);
-			student_profile_panel.add(update_button);
 
 			student_profile_button.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
@@ -210,17 +213,14 @@ public class student extends JFrame {
 			grades_area.setBounds(91, 94, 967, 333);
 			student_grades_panel.add(grades_area);
 			
-			rs=st.executeQuery("select * from marks");
-			for(int i=0;i<5;i++)
-			{
-				grades_area.setText("\n");
-			}
+			rs=st.executeQuery("select * from stu_cour,marks,course where cid=cno and marks.sno="+str+" and marks.sno=stu_cour.sno");
+            int i=4;
 			while(rs.next())
-			{
-				str.equals(""+rs.getInt(1));
-				break;
-			}
-			grades_area.setText("Maths: "+rs.getInt(2)+"   Physics:   "+rs.getInt(3)+"   Chemistry:   "+rs.getString(4)+"   English:   "+rs.getInt(5)+"  German:  "+rs.getInt(6));
+            {
+            	grades_area.append("Course id:"+rs.getString(9)+" Course name:"+rs.getString(10)+" Marks"+rs.getInt(i)+"\n");
+                i++;
+            }
+			//grades_area.setText("Maths: "+rs.getInt(2)+"   Physics:   "+rs.getInt(3)+"   Chemistry:   "+rs.getString(4)+"   English:   "+rs.getInt(5)+"  German:  "+rs.getInt(6));
 			student_grades.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
 			    	student_layeredPane.removeAll();
@@ -246,7 +246,7 @@ public class student extends JFrame {
 			JTextArea event_area = new JTextArea();
 			event_area.setBounds(10, 125, 1044, 305);
 			student_event_panel.add(event_area);
-			rs=st.executeQuery("select * from event");
+			rs=st.executeQuery("select * from event,stu_event where eno=eid and sno="+str);
 			while(rs.next())	
 			{
 				event_area.append("Name: "+rs.getString(2)+"   Start date:   "+rs.getString(3)+"   End Date:   "+rs.getString(4)+"   Fee:   "+rs.getInt(5)+"\n");
@@ -304,34 +304,6 @@ public class student extends JFrame {
 			
 			
 			
-			update_button.addActionListener(new ActionListener(){  
-			    public void actionPerformed(ActionEvent e){
-			    	ResultSet rs1;
-			    	try 
-			    	{
-			    		rs1=st.executeQuery("select * from student");
-			    	while(rs1.next())
-					{
-						str.equals(""+rs1.getInt(1));
-						break;
-					}
-			        rs1.updateString(1, student_profile_name_pane.getText());
-			        rs1.updateString(2, student_Profile_Lname_pane.getText());
-			        rs1.updateInt(3, Integer.parseInt(student_profile_age_pane.getText()));
-			        //rs1.updateInt(4, sql);
-			        rs1.updateInt(5, Integer.parseInt(student_profile_dno_pane.getText()));
-			        rs1.updateString(6, student_profile_street_pane.getText());
-			        rs1.updateString(7, student_profile_city_pane.getText());
-			        rs1.updateInt(8, Integer.parseInt(student_profile_bhavan_pane.getText()));
-			        rs1.updateRow();
-			    	}
-			    	catch(Exception ex)
-			    	{
-			    		
-			    	}
-					
-			    }  
-			    });
 			
 			
 			con.close();
