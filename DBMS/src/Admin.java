@@ -248,7 +248,7 @@ public class Admin extends JFrame{
 		vcou.setBounds(365, 368, 215, 102);
 		getContentPane().add(vcou);
 		
-		JButton chcou = new JButton("Alter Course Details");
+		JButton chcou = new JButton("Alter Course Credits");
 		chcou.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Admin_ACou aac = new Admin_ACou();

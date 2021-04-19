@@ -11,25 +11,19 @@ public class student extends JFrame {
 		ResultSet rs;
 		try 
 		{
-			//int id=Integer.parseInt(str);
 			int count=1;
-			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
-			Statement st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			Connection cont=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
+			Statement st=cont.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
 			String sql="select * from student";
 			rs=st.executeQuery(sql);
-			//rs.next();
 			while(rs.next())
 			{
-				//System.out.println(str);
 				if(str.equals(""+rs.getInt(1)))
 				{
 					break;
 				}
-				
 			}
-			//con.close();
 			setSize(1280,720);
 			setVisible(true);
 			getContentPane().setLayout(null);
@@ -53,8 +47,6 @@ public class student extends JFrame {
 			student_events.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
 			student_events.setBounds(0, 90, 202, 45);
 			student_content_panel2.add(student_events);
-			
-			
 			JButton student_grades = new JButton("GRADES");
 			student_grades.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
 			student_grades.setBounds(0, 135, 202, 45);
@@ -201,13 +193,6 @@ public class student extends JFrame {
 			    	student_layeredPane.revalidate();    
 			    }  
 			    });
-			
-			
-			
-			
-			
-			
-			
 			JPanel student_grades_panel = new JPanel();
 			student_layeredPane.add(student_grades_panel, "name_164213488408800");
 			student_grades_panel.setLayout(null);
@@ -223,7 +208,6 @@ public class student extends JFrame {
             	grades_area.append("Course id:"+rs.getString(9)+"     Course name:"+rs.getString(10)+"      Marks"+rs.getInt(i)+"\n");
                 i++;
             }
-			//grades_area.setText("Maths: "+rs.getInt(2)+"   Physics:   "+rs.getInt(3)+"   Chemistry:   "+rs.getString(4)+"   English:   "+rs.getInt(5)+"  German:  "+rs.getInt(6));
 			student_grades.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
 			    	student_layeredPane.removeAll();
@@ -232,20 +216,9 @@ public class student extends JFrame {
 			    	student_layeredPane.revalidate();    
 			    }  
 			    });
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			JPanel student_event_panel = new JPanel();
 			student_layeredPane.add(student_event_panel, "name_164213527612100");
 			student_event_panel.setLayout(null);
-			
 			JTextArea event_area = new JTextArea();
 			event_area.setBounds(42, 126, 1012, 304);
 			student_event_panel.add(event_area);
@@ -257,21 +230,22 @@ public class student extends JFrame {
 			}
 			student_events.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
+			    	try{
+			    		ResultSet rs2;
+			    	rs2=st.executeQuery("select * from event,stu_event where eno=eid and sno="+str);
+			    	event_area.setText("");
+					while(rs2.next())	
+					{
+						event_area.append("Name: "+rs2.getString(2)+"   Start date:   "+rs2.getString(3)+"   End Date:   "+rs2.getString(4)+"   Fee:   "+rs2.getInt(5)+"\n");
+						
+					}
 			    	student_layeredPane.removeAll();
 			    	student_layeredPane.add(student_event_panel);
 			    	student_layeredPane.repaint();
-			    	student_layeredPane.revalidate();    
+			    	student_layeredPane.revalidate(); 
+			    	}catch(Exception ex){System.out.println(ex);}
 			    }  
 			    });
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			JPanel student_courses_panel = new JPanel();
 			student_layeredPane.add(student_courses_panel, "name_164213581621300");
 			student_courses_panel.setLayout(null);
@@ -285,28 +259,21 @@ public class student extends JFrame {
 			student_joinevents_panel.setLayout(null);
 			
 			JLabel lblNewLabel = new JLabel("Enter event id");
-			lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 19));
+			lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 22));
 			lblNewLabel.setBounds(70, 68, 170, 40);
 			student_joinevents_panel.add(lblNewLabel);
 			
 			joinevent_field = new JTextField();
-			joinevent_field.setBounds(252, 77, 86, 30);
+			joinevent_field.setBounds(252, 77, 107, 31);
 			student_joinevents_panel.add(joinevent_field);
 			joinevent_field.setColumns(10);
 			
 			JButton student_joinevent_button = new JButton("JOIN EVENT");
 			student_joinevent_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 17));
-			student_joinevent_button.setBounds(414, 81, 170, 40);
+			student_joinevent_button.setBounds(419, 69, 170, 40);
 			student_joinevents_panel.add(student_joinevent_button);
 			
 			rs=st.executeQuery("select * from stu_cour,course where cid=cno and sno="+str);
-			
-			/*while(rs.next())
-			{
-				str.equals(""+rs.getInt(1));
-				break;
-			}
-			*/
 			student_courses_area.append("Courses taken\n");
 			while(rs.next())	
 			{
@@ -330,21 +297,29 @@ public class student extends JFrame {
 			    	try 
 			    	{
 			    		rs1=st.executeQuery("insert into stu_event values("+str+","+joinevent_field.getText()+")");
+			    		joinevent_field.setText("");
+			    		try{
+				    		ResultSet rs2;
+				    	rs2=st.executeQuery("select * from event,stu_event where eno=eid and sno="+str);
+				    	event_area.setText("");
+						while(rs2.next())	
+						{
+							event_area.append("Name: "+rs2.getString(2)+"   Start date:   "+rs2.getString(3)+"   End Date:   "+rs2.getString(4)+"   Fee:   "+rs2.getInt(5)+"\n");
+							
+						}
+				    	student_layeredPane.removeAll();
+				    	student_layeredPane.add(student_event_panel);
+				    	student_layeredPane.repaint();
+				    	student_layeredPane.revalidate(); 
+				    	}catch(Exception ex){System.out.println(ex);}
 					} 
 			    	catch (Exception e2) 
 			    	{
 						System.out.println(e2);
-					}
-			    	
-			    	
+					}	
 			    }  
 			    });
-			
-			
-			
-			
-			
-			
+
 			joinevents_button.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
 			    	student_layeredPane.removeAll();
@@ -354,12 +329,7 @@ public class student extends JFrame {
 			    }  
 			    });
 			
-			
-			
-			//con.close();
-			
 		} 
-
 		catch (Exception e) {
 			System.out.print(e);
 		}
