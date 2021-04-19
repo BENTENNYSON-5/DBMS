@@ -9,11 +9,13 @@ public class firstScreen extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JButton login_button1 = new JButton("Login");
-		login_button1.setBounds(652, 381, 109, 38);
+		login_button1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		login_button1.setBounds(538, 203, 156, 60);
 		getContentPane().add(login_button1);
 		
 		JButton signup_button1 = new JButton("Signup");
-		signup_button1.setBounds(652, 430, 109, 38);
+		signup_button1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		signup_button1.setBounds(538, 326, 156, 60);
 		getContentPane().add(signup_button1);
 		setVisible(true);
 		setSize(1280,720);

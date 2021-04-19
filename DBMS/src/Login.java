@@ -49,7 +49,7 @@ class Login extends JFrame{
 			designation_label.setBounds(70, 241, 76, 14);
 			getContentPane().add(designation_label);
 			setVisible(true);
-			setSize(400,401);
+			setSize(1280,720);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			login_button2.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
