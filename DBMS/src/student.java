@@ -217,7 +217,7 @@ public class student extends JFrame {
             int i=4;
 			while(rs.next())
             {
-            	grades_area.append("Course id:"+rs.getString(9)+" Course name:"+rs.getString(10)+" Marks"+rs.getInt(i)+"\n");
+            	grades_area.append("Course id:"+rs.getString(9)+"     Course name:"+rs.getString(10)+"      Marks"+rs.getInt(i)+"\n");
                 i++;
             }
 			//grades_area.setText("Maths: "+rs.getInt(2)+"   Physics:   "+rs.getInt(3)+"   Chemistry:   "+rs.getString(4)+"   English:   "+rs.getInt(5)+"  German:  "+rs.getInt(6));
