@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+
+
 import java.awt.*;
 
 
@@ -56,20 +59,24 @@ class Login extends JFrame{
 					{
 						//int i=1;
 						//boolean bool=true;
-						Class.forName("oracle.jdbc.driver.OracleDriver");
-						Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "\"Chintu2@\"");
+						//Class.forName("oracle.jdbc.driver.OracleDriver");
+						Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
 						Statement st=con.createStatement();
 						String sql="select * from login_cred";
+						//String sql="select * from login_cred where username='"+userid.getText()+"' and password='"+String.valueOf(password.getPassword())+"'";
 						rs=st.executeQuery(sql);
 						//rs.next();
+						System.out.println(String.valueOf(password.getPassword())); 
 						while(rs.next())
 						{
 							//System.out.println("hjelolo");
-							String dum1=userid.getText(),dum2=rs.getString(1);
+							String dum1=userid.getText(),dum2=rs.getString(1),dum3=rs.getString(2);
+							String dum4 = new String(password.getPassword());
 							//System.out.println(dum1);
-							if(dum1.equals(dum2));
+							if(dum1.equals(dum2) && dum4.equals(dum3))
 							{
 								//System.out.println("hjelolo");
+								//JOptionPane.showMessageDialog(null, "Logged in successfully");
 								if((comboBox.getSelectedItem().toString()).equals("Student"))
 								{
 									//int dum3;
@@ -81,14 +88,50 @@ class Login extends JFrame{
 									//con.close();
 									break;
 									
+									
+								}
+								if((comboBox.getSelectedItem().toString()).equals("Teacher"))
+								{
+									//int dum3;
+									//dum3=Integer.parseInt(dum1);
+									//System.out.println("hjelolo");
+									con.close();
+									new Teacher(dum1);
+									//rs.absolute(1);
+									//con.close();
+									break;
+									
+								}
+								if((comboBox.getSelectedItem().toString()).equals("Administration"))
+								{
+									//int dum3;
+									//dum3=Integer.parseInt(dum1);
+									//System.out.println("hjelolo");
+									con.close();
+									new Admin_View();
+									//rs.absolute(1);
+									//con.close();
+									break;
+									
+								}
+								if((comboBox.getSelectedItem().toString()).equals("Teaching Assistant"))
+								{
+									//int dum3;
+									//dum3=Integer.parseInt(dum1);
+									//System.out.println("hjelolo");
+									con.close();
+									new ta(dum1);
+									//rs.absolute(1);
+									//con.close();
+									break;
+									
 								}
 								
+								
 							}
-							
-							
-							
-							
+								
 						}
+						
 						dispose();
 				    }
 					catch (Exception e) {

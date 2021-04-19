@@ -17,8 +17,8 @@ public class student extends JFrame {
 			int count=1;
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "\"Chintu2@\"");
-			Statement st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
+			Statement st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,/*ResultSet.CONCUR_READ_ONLY*/ResultSet.CONCUR_UPDATABLE);
 			String sql="select * from student";
 			rs=st.executeQuery(sql);
 			//rs.next();
@@ -46,10 +46,10 @@ public class student extends JFrame {
 			student_profile_button.setBounds(0, 0, 186, 45);
 			student_content_panel2.add(student_profile_button);
 			
-			JButton student_timetable = new JButton("TIME TABLE");
-			student_timetable.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_timetable.setBounds(0, 45, 186, 45);
-			student_content_panel2.add(student_timetable);
+			JButton student_courses = new JButton("COURSES");
+			student_courses.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
+			student_courses.setBounds(0, 45, 186, 45);
+			student_content_panel2.add(student_courses);
 			
 			JButton student_events = new JButton("EVENTS");
 			student_events.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
@@ -63,6 +63,12 @@ public class student extends JFrame {
 			student_content_panel2.add(student_grades);
 			
 			JButton student_logout = new JButton("LOG OUT");
+			student_logout.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new Login();
+					dispose();
+				}
+			});
 			student_logout.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
 			student_logout.setBounds(0, 525, 186, 45);
 			student_content_panel2.add(student_logout);
@@ -175,6 +181,11 @@ public class student extends JFrame {
 			student_profile_bhavan_pane.setText(""+rs.getInt(7));
 			student_profile_bhavan_pane.setBounds(250, 384, 624, 20);
 			student_profile_panel.add(student_profile_bhavan_pane);
+			
+			JButton update_button = new JButton("UPDATE");
+			update_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
+			update_button.setBounds(846, 531, 186, 45);
+			student_profile_panel.add(update_button);
 
 			student_profile_button.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
@@ -209,7 +220,7 @@ public class student extends JFrame {
 				str.equals(""+rs.getInt(1));
 				break;
 			}
-			grades_area.setText("Maths "+rs.getInt(2)+"   Physics   "+rs.getInt(3)+"   Chemistry   "+rs.getString(4)+"   English   "+rs.getInt(5)+"  German  "+rs.getInt(6));
+			grades_area.setText("Maths: "+rs.getInt(2)+"   Physics:   "+rs.getInt(3)+"   Chemistry:   "+rs.getString(4)+"   English:   "+rs.getInt(5)+"  German:  "+rs.getInt(6));
 			student_grades.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
 			    	student_layeredPane.removeAll();
@@ -236,13 +247,10 @@ public class student extends JFrame {
 			event_area.setBounds(10, 125, 1044, 305);
 			student_event_panel.add(event_area);
 			rs=st.executeQuery("select * from event");
-			for(int i=0;i<5;i++)
+			while(rs.next())	
 			{
-				event_area.setText("\n");
-			}
-			while(rs.next())
-			{
-				event_area.setText("Name: "+rs.getString(2)+"   Start date:   "+rs.getString(3)+"   End Date:   "+rs.getString(4)+"   Fee:   "+rs.getInt(5)+" "+"\n");
+				event_area.append("Name: "+rs.getString(2)+"   Start date:   "+rs.getString(3)+"   End Date:   "+rs.getString(4)+"   Fee:   "+rs.getInt(5)+"\n");
+				
 			}
 			student_events.addActionListener(new ActionListener(){  
 			    public void actionPerformed(ActionEvent e){
@@ -261,8 +269,71 @@ public class student extends JFrame {
 			
 			
 			
-			JPanel panel = new JPanel();
-			student_layeredPane.add(panel, "name_164213581621300");
+			JPanel student_courses_panel = new JPanel();
+			student_layeredPane.add(student_courses_panel, "name_164213581621300");
+			student_courses_panel.setLayout(null);
+			
+			JTextArea student_courses_area = new JTextArea();
+			student_courses_area.setBounds(10, 11, 1043, 492);
+			student_courses_panel.add(student_courses_area);
+			
+			rs=st.executeQuery("select * from stu_cour");
+			
+			/*while(rs.next())
+			{
+				str.equals(""+rs.getInt(1));
+				break;
+			}
+			*/
+			student_courses_area.append("Courses taken\n");
+			while(rs.next())	
+			{
+				if(str.equals(""+rs.getInt(1)))
+				{
+					student_courses_area.append("Course id:"+rs.getInt(2)+"\n");
+				}
+			}
+			student_courses.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			    	student_layeredPane.removeAll();
+			    	student_layeredPane.add(student_courses_panel);
+			    	student_layeredPane.repaint();
+			    	student_layeredPane.revalidate();    
+			    }  
+			    });
+			
+			
+			
+			update_button.addActionListener(new ActionListener(){  
+			    public void actionPerformed(ActionEvent e){
+			    	ResultSet rs1;
+			    	try 
+			    	{
+			    		rs1=st.executeQuery("select * from student");
+			    	while(rs1.next())
+					{
+						str.equals(""+rs1.getInt(1));
+						break;
+					}
+			        rs1.updateString(1, student_profile_name_pane.getText());
+			        rs1.updateString(2, student_Profile_Lname_pane.getText());
+			        rs1.updateInt(3, Integer.parseInt(student_profile_age_pane.getText()));
+			        //rs1.updateInt(4, sql);
+			        rs1.updateInt(5, Integer.parseInt(student_profile_dno_pane.getText()));
+			        rs1.updateString(6, student_profile_street_pane.getText());
+			        rs1.updateString(7, student_profile_city_pane.getText());
+			        rs1.updateInt(8, Integer.parseInt(student_profile_bhavan_pane.getText()));
+			        rs1.updateRow();
+			    	}
+			    	catch(Exception ex)
+			    	{
+			    		
+			    	}
+					
+			    }  
+			    });
+			
+			
 			con.close();
 			
 		} 
