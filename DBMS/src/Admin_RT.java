@@ -151,6 +151,7 @@ public class Admin_RT extends JFrame {
 					ResultSet rs = ps.executeQuery();
 					PreparedStatement pss = conn.prepareStatement(sql);
 					ResultSet rss = pss.executeQuery();
+					conn.close();
 				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
@@ -194,6 +195,7 @@ public class Admin_RT extends JFrame {
 						PreparedStatement psss = conn.prepareStatement(sqlp2);
 						ResultSet rsss = psss.executeQuery();
 					}
+					conn.close();
 				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();

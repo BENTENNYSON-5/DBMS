@@ -17,7 +17,6 @@ public class Admin_ACou extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField AACCredits;
-	private JTextField AACID;
 
 	/**
 	 * Launch the application.
@@ -62,12 +61,6 @@ public class Admin_ACou extends JFrame {
 		lblSetCredits.setBounds(324, 248, 166, 64);
 		contentPane.add(lblSetCredits);
 		
-		JLabel lblSetCourseId = new JLabel("Set Course ID");
-		lblSetCourseId.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSetCourseId.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblSetCourseId.setBounds(324, 399, 166, 64);
-		contentPane.add(lblSetCourseId);
-		
 		AACCredits = new JTextField();
 		AACCredits.setHorizontalAlignment(SwingConstants.CENTER);
 		AACCredits.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -75,16 +68,18 @@ public class Admin_ACou extends JFrame {
 		contentPane.add(AACCredits);
 		AACCredits.setColumns(10);
 		
-		AACID = new JTextField();
-		AACID.setHorizontalAlignment(SwingConstants.CENTER);
-		AACID.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		AACID.setColumns(10);
-		AACID.setBounds(541, 399, 203, 64);
-		contentPane.add(AACID);
-		
 		JButton AACDone = new JButton("Done");
 		AACDone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String credits=AACCredits.getText().toString();
+					String cname= AACcomboBox.getSelectedItem().toString();
+					String sql = "update course set credits = "+credits +" where cname = "+"'"+cname+"'";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
 				AD.setVisible(true);
@@ -92,7 +87,7 @@ public class Admin_ACou extends JFrame {
 			}
 		});
 		AACDone.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		AACDone.setBounds(660, 564, 153, 52);
+		AACDone.setBounds(631, 439, 153, 52);
 		contentPane.add(AACDone);
 	}
 }

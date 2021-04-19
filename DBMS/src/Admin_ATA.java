@@ -89,6 +89,15 @@ public class Admin_ATA extends JFrame {
 		JButton ATAremovedone = new JButton("Done");
 		ATAremovedone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String taname = ATAremovenametf.getText().toString();
+					String tacno = ATAremovecnotf.getText().toString();
+					String sql = "delete from teach_assistant where cno = "+ tacno +"and taname = '"+taname+"'";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
 				AD.setVisible(true);
@@ -146,6 +155,17 @@ public class Admin_ATA extends JFrame {
 		JButton ATAadddone = new JButton("Done");
 		ATAadddone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String cno=ATAaddcnotf.getText().toString();
+					String taname= ATAaddnametf.getText().toString();
+					String taage=ATAaddagetf.getText().toString();
+					String tasal=ATAaddsaltf.getText().toString();
+					String sql = "insert into teach_assistant values("+cno+","+"'"+taname+"'"+","+taage+","+tasal+")";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
 				AD.setVisible(true);

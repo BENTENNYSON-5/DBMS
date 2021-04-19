@@ -79,6 +79,17 @@ public class Admin_EVE extends JFrame {
 		JButton EVEcanceldone = new JButton("Done");
 		EVEcanceldone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String eid = EVEcancelIDtf.getText().toString();
+					String sql = "delete from event where eid = "+ eid;
+					String sql2 = "delete from stu_event where eno = "+ eid;
+					PreparedStatement pss = conn.prepareStatement(sql2);
+					ResultSet rss = pss.executeQuery();
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
 				AD.setVisible(true);
@@ -127,6 +138,19 @@ public class Admin_EVE extends JFrame {
 		JButton EVEaddevent = new JButton("ADD EVENT");
 		EVEaddevent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String eid=EVEaddIDtf.getText().toString();
+					String ename= EVEaddnametf.getText().toString();
+					String strdate=EVEaddsdtf.getText().toString();
+					String enddate=EVEaddedtf.getText().toString();
+					String efee =EVEaddentryfeetf.getText().toString();
+					String eco = EVEaddcoIDtf.getText().toString();
+					String sql = "insert into event values("+eid+","+"'"+ename+"'"+","+"'"+strdate+"'"+","+"'"+enddate+"'"+","+efee+","+eco+")";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();
+					conn.close();
+				}catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
 				AD.setVisible(true);
