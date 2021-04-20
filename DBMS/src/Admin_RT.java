@@ -55,6 +55,7 @@ public class Admin_RT extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280,720);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.CYAN);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -181,8 +182,14 @@ public class Admin_RT extends JFrame {
 					String phno1 = RTaddph1tf.getText().toString();
 					String phno2 = RTaddph2tf.getText().toString();
 					String sql = "insert into teacher values("+tid+","+"'"+tname+"'"+","+"'"+tlname+"'"+","+tdno+","+"'"+tstr+"'"+","+"'"+tcity+"'"+","+tage+","+cono+","+tsal+","+"'"+depntno+"'"+")";
+					/*
 					PreparedStatement ps = conn.prepareStatement(sql);
+					ResultSet rs = ps.executeQuery();*/
+					String sql2= "insert into login_cred values("+tid+","+"'jshduj"+tid.substring(3)+"'"+")";
+					PreparedStatement ps = conn.prepareStatement(sql);
+					PreparedStatement ps2 = conn.prepareStatement(sql2);
 					ResultSet rs = ps.executeQuery();
+					ResultSet rs2 = ps2.executeQuery();
 					if (RTaddph2tf.getText().isEmpty()) {
 						String sqlp1 = "insert into teacher_phno values("+ tid + ","+phno1+")";
 						PreparedStatement pss = conn.prepareStatement(sqlp1);

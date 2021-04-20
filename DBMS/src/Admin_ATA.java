@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -46,6 +47,7 @@ public class Admin_ATA extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280,720);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.CYAN);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -155,7 +157,7 @@ public class Admin_ATA extends JFrame {
 		JButton ATAadddone = new JButton("Done");
 		ATAadddone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
+				/*try {
 					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
 					String cno=ATAaddcnotf.getText().toString();
 					String taname= ATAaddnametf.getText().toString();
@@ -165,7 +167,34 @@ public class Admin_ATA extends JFrame {
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
 					conn.close();
-				}catch(Exception ex) {System.out.println(ex);}
+				}catch(Exception ex) {System.out.println(ex);}*/
+				try {
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
+					String cno=ATAaddcnotf.getText().toString();
+					String taname= ATAaddnametf.getText().toString();
+					String taage=ATAaddagetf.getText().toString();
+					String tasal=ATAaddsaltf.getText().toString();
+					String sql2 = "select count(*) from teach_assistant";
+					PreparedStatement ps2 = conn.prepareStatement(sql2);
+					ResultSet rs2 = ps2.executeQuery();
+					rs2.next();
+					if(rs2.getInt(1)<10)
+					{
+						String sql = "insert into teach_assistant values("+cno+","+"'"+taname+"'"+","+taage+","+tasal+")";
+						PreparedStatement ps = conn.prepareStatement(sql);
+						ResultSet rs = ps.executeQuery();
+						
+						String sql3 = "insert into login_cred values("+cno+","+"'jshduj"+cno.substring(3)+"'"+")";
+						PreparedStatement ps3 = conn.prepareStatement(sql3);
+						ResultSet rs3 = ps3.executeQuery();
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Cannot add more teaching assistants");
+					}
+					
+					conn.close();
+				}
+				catch(Exception ex) {System.out.println(ex);}
 				//querycode
 				Admin AD = new Admin();
 				AD.setVisible(true);

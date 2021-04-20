@@ -70,83 +70,66 @@ class Login extends JFrame{
 					ResultSet rs;
 					try 
 					{
-						//int i=1;
-						//boolean bool=true;
-						//Class.forName("oracle.jdbc.driver.OracleDriver");
 						Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "ororacle");
 						Statement st=con.createStatement();
 						String sql="select * from login_cred";
-						//String sql="select * from login_cred where username='"+userid.getText()+"' and password='"+String.valueOf(password.getPassword())+"'";
 						rs=st.executeQuery(sql);
-						//rs.next();
 						System.out.println(String.valueOf(password.getPassword())); 
 						while(rs.next())
 						{
-							//System.out.println("hjelolo");
 							String dum1=userid.getText(),dum2=rs.getString(1),dum3=rs.getString(2);
 							String dum4 = new String(password.getPassword());
-							//System.out.println(dum1);
 							if(dum1.equals(dum2) && dum4.equals(dum3))
 							{
-								//System.out.println("hjelolo");
-								//JOptionPane.showMessageDialog(null, "Logged in successfully");
 								if((comboBox.getSelectedItem().toString()).equals("Student"))
 								{
-									//int dum3;
-									//dum3=Integer.parseInt(dum1);
-									//System.out.println("hjelolo");
+									JOptionPane.showMessageDialog(null, "Logged in successfully");
 									con.close();
 									student ssst = new student(dum1);
 									ssst.setVisible(true);
-									//rs.absolute(1);
-									//con.close();
+									dispose();
 									break;
 									
 									
 								}
 								if((comboBox.getSelectedItem().toString()).equals("Teacher"))
 								{
-									//int dum3;
-									//dum3=Integer.parseInt(dum1);
-									//System.out.println("hjelolo");
+									JOptionPane.showMessageDialog(null, "Logged in successfully");
 									con.close();
 									Teacher ssst = new Teacher(dum1);
 									ssst.setVisible(true);
-									//rs.absolute(1);
-									//con.close();
+									dispose();
 									break;
 									
 								}
 								if((comboBox.getSelectedItem().toString()).equals("Administration"))
 								{
-									//int dum3;
-									//dum3=Integer.parseInt(dum1);
-									//System.out.println("hjelolo");
+									JOptionPane.showMessageDialog(null, "Logged in successfully");
 									con.close();
 									Admin ssst = new Admin();
 									ssst.setVisible(true);
-									//rs.absolute(1);
-									//con.close();
+									dispose();
 									break;
 									
 								}
 								if((comboBox.getSelectedItem().toString()).equals("Teaching Assistant"))
 								{
-									//int dum3;
-									//dum3=Integer.parseInt(dum1);
-									//System.out.println("hjelolo");
+									JOptionPane.showMessageDialog(null, "Logged in successfully");
 									con.close();
 									ta ssst = new ta(dum1);
 									ssst.setVisible(true);
-									//rs.absolute(1);
-									//con.close();
+									dispose();
 									break;
-									
 								}
-								
-								
-							}
-								
+							}	
+						}
+						if(rs.next())
+						{
+							
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Invalid username or password");
+							
 						}
 						
 						dispose();
@@ -156,9 +139,6 @@ class Login extends JFrame{
 					}
 			
 		}
-	//public static void main(String[] args){
-		//Login login=new Login();
-	//}
 });
 		}
 }

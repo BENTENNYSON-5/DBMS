@@ -46,7 +46,7 @@ public class student extends JFrame {
 			student_events.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
 			student_events.setBounds(0, 120, 186, 60);
 			student_content_panel2.add(student_events);
-			JButton student_grades = new JButton("GRADES");
+			JButton student_grades = new JButton("MARKS");
 			student_grades.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
 			student_grades.setBounds(0, 180, 186, 60);
 			student_content_panel2.add(student_grades);
