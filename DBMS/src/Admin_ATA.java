@@ -211,6 +211,14 @@ public class Admin_ATA extends JFrame {
 		contentPane.add(ATAcpanel);
 		
 		JButton bacck = new JButton("Back");
+		bacck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Admin ast = new Admin();
+				ast.setVisible(true);
+				dispose();
+			}
+		});
+		bacck.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		bacck.setBounds(77, 572, 156, 42);
 		contentPane.add(bacck);
 	}

@@ -105,6 +105,14 @@ public class Admin_ACou extends JFrame {
 		admin_acou_heading_panel.add(tea_heading);
 		
 		JButton bacck = new JButton("Back");
+		bacck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Admin ast = new Admin();
+				ast.setVisible(true);
+				dispose();
+			}
+		});
+		bacck.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		bacck.setBounds(110, 553, 156, 42);
 		contentPane.add(bacck);
 	}

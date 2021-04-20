@@ -296,6 +296,14 @@ public class Admin_RT extends JFrame {
 		contentPane.add(RTaddcitf);
 		
 		JButton bacck = new JButton("Back");
+		bacck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Admin ast = new Admin();
+				ast.setVisible(true);
+				dispose();
+			}
+		});
+		bacck.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		bacck.setBounds(36, 618, 156, 42);
 		contentPane.add(bacck);
 	}
