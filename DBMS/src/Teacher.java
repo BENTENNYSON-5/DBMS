@@ -312,7 +312,7 @@ public class Teacher extends JFrame {
 			tea_profile_panel.add(profile_city_label);
 			
 
-			JLabel profile_course_time_label = new JLabel("City");
+			JLabel profile_course_time_label = new JLabel("Course Timings");
 			profile_course_time_label.setFont(new Font("Lato Semibold", Font.PLAIN, 20));
 			profile_course_time_label.setBounds(80, 450, 170, 40);
 			tea_profile_panel.add(profile_course_time_label);
