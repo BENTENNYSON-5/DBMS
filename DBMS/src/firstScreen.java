@@ -6,16 +6,17 @@ import java.awt.event.ActionListener;
 public class firstScreen extends JFrame{
 	
 	public firstScreen() {
+		getContentPane().setBackground(Color.CYAN);
 		getContentPane().setLayout(null);
 		
-		JButton login_button1 = new JButton("Login");
-		login_button1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		login_button1.setBounds(538, 203, 156, 60);
+		JButton login_button1 = new JButton("LOGIN");
+		login_button1.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		login_button1.setBounds(538, 203, 217, 77);
 		getContentPane().add(login_button1);
 		
-		JButton signup_button1 = new JButton("Signup");
-		signup_button1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		signup_button1.setBounds(538, 326, 156, 60);
+		JButton signup_button1 = new JButton("SIGNUP");
+		signup_button1.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		signup_button1.setBounds(538, 326, 217, 87);
 		getContentPane().add(signup_button1);
 		setVisible(true);
 		setSize(1280,720);
