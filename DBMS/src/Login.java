@@ -38,7 +38,7 @@ class Login extends JFrame{
 			userid.setBounds(450,363,360,52); 
 			password_label.setBounds(449,434,127,37);
 			password.setBounds(450,481,360,52);
-			login_button2.setBounds(560,599,149,57);
+			login_button2.setBounds(544,599,182,57);
 			getContentPane().add(login_page_label);
 			getContentPane().add(userid_label);
 			getContentPane().add(userid);
@@ -68,6 +68,18 @@ class Login extends JFrame{
 			login_heading_panel.add(login_heading);
 			login_heading.setForeground(Color.RED);
 			login_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+			
+			JButton login_button2_1 = new JButton("BACK");
+			login_button2_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					firstScreen fs= new firstScreen();
+					fs.setVisible(true);
+					dispose();
+				}
+			});
+			login_button2_1.setFont(new Font("Tahoma", Font.PLAIN, 40));
+			login_button2_1.setBounds(74, 599, 182, 57);
+			getContentPane().add(login_button2_1);
 			setVisible(true);
 			setSize(1280,720);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
