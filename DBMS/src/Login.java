@@ -21,19 +21,24 @@ class Login extends JFrame{
 		Login(){
 			getContentPane().setBackground(Color.CYAN);
 			Font f=new Font("Arial",Font.BOLD,24);
-			login_page_label=new JLabel("Login Page");
-			login_page_label.setFont(f);
+			login_page_label=new JLabel("LOGIN PAGE");
+			login_page_label.setFont(new Font("Times New Roman", Font.BOLD, 38));
 			userid_label=new JLabel("User Id");
+			userid_label.setFont(new Font("Tahoma", Font.PLAIN, 30));
 			userid=new JTextField();
+			userid.setFont(new Font("Tahoma", Font.PLAIN, 24));
 			password_label=new JLabel("Password");
+			password_label.setFont(new Font("Tahoma", Font.PLAIN, 30));
 			password=new JPasswordField();
-			login_button2=new JButton("Login");
-			login_page_label.setBounds(562,107,136,28);
-			userid_label.setBounds(535,160,100,20);
-			userid.setBounds(535,190,200,30); 
-			password_label.setBounds(535,240,100,20);
-			password.setBounds(535,270,200,30);
-			login_button2.setBounds(586,400,100,30);
+			password.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			login_button2=new JButton("LOGIN");
+			login_button2.setFont(new Font("Tahoma", Font.PLAIN, 40));
+			login_page_label.setBounds(508,98,244,44);
+			userid_label.setBounds(450,316,98,37);
+			userid.setBounds(450,363,360,52); 
+			password_label.setBounds(449,434,127,37);
+			password.setBounds(450,481,360,52);
+			login_button2.setBounds(560,599,149,57);
 			getContentPane().add(login_page_label);
 			getContentPane().add(userid_label);
 			getContentPane().add(userid);
@@ -43,11 +48,13 @@ class Login extends JFrame{
 			getContentPane().setLayout(null);
 			String[] designation= {"Teacher","Student","Administration","Teaching Assistant" };
 			comboBox = new JComboBox(designation);
-			comboBox.setBounds(535, 350, 200, 30);
+			comboBox.setFont(new Font("Tahoma", Font.PLAIN, 30));
+			comboBox.setBounds(449, 229, 361, 52);
 			getContentPane().add(comboBox);
 			
 			JLabel designation_label = new JLabel("Designation");
-			designation_label.setBounds(535, 320, 76, 14);
+			designation_label.setFont(new Font("Tahoma", Font.PLAIN, 30));
+			designation_label.setBounds(448, 182, 158, 37);
 			getContentPane().add(designation_label);
 			
 			JPanel login_heading_panel = new JPanel();

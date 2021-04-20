@@ -14,103 +14,115 @@ public class signUp extends JFrame{
 	private JTextField street;
 	private JTextField City;
 	public signUp() {
+		getContentPane().setBackground(Color.CYAN);
 		setVisible(true);
 		setSize(1280,720);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Course Name");
+		JLabel lblNewLabel = new JLabel("BRANCH");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(220, 32, 156, 45);
+		lblNewLabel.setBounds(70, 95, 156, 45);
 		getContentPane().add(lblNewLabel);
 		String[] Stri = {"MPC","BiPC" ,"MEC"};
 		JComboBox cb = new JComboBox(Stri);
-		cb.setBounds(486, 32, 313, 45);
+		cb.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		cb.setBounds(225, 92, 313, 45);
 		getContentPane().add(cb);
 		
 		JLabel lblNewLabel_1 = new JLabel("Password");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1.setBounds(220, 190, 156, 45);
+		lblNewLabel_1.setBounds(338, 190, 156, 45);
 		getContentPane().add(lblNewLabel_1);
 		
 		Pswd = new JTextField();
-		Pswd.setBounds(579, 204, 181, 27);
+		Pswd.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		Pswd.setBounds(643, 199, 181, 27);
 		getContentPane().add(Pswd);
 		Pswd.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Course Name");
+		JLabel lblNewLabel_2 = new JLabel("Language");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_2.setBounds(220, 115, 156, 45);
+		lblNewLabel_2.setBounds(680, 92, 156, 45);
 		getContentPane().add(lblNewLabel_2);
 		String[] stt = {"German", "French", "Sanskrit"};
 		JComboBox cb2 = new JComboBox(stt);
-		cb2.setBounds(486, 115, 313, 45);
+		cb2.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		cb2.setBounds(870, 92, 313, 45);
 		getContentPane().add(cb2);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("FirstName");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1.setBounds(220, 268, 156, 45);
+		lblNewLabel_1_1.setBounds(338, 245, 156, 45);
 		getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("LastName");
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_2.setBounds(220, 323, 156, 45);
+		lblNewLabel_1_2.setBounds(338, 300, 156, 45);
 		getContentPane().add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Age");
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_3.setBounds(220, 392, 156, 45);
+		lblNewLabel_1_3.setBounds(338, 355, 156, 45);
 		getContentPane().add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Dno");
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_4.setBounds(220, 447, 156, 45);
+		lblNewLabel_1_4.setBounds(338, 410, 156, 45);
 		getContentPane().add(lblNewLabel_1_4);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("Street");
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_5.setBounds(220, 502, 156, 45);
+		lblNewLabel_1_5.setBounds(338, 465, 156, 45);
 		getContentPane().add(lblNewLabel_1_5);
 		
 		JLabel lblNewLabel_1_6 = new JLabel("City");
 		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_6.setBounds(220, 560, 156, 45);
+		lblNewLabel_1_6.setBounds(338, 520, 156, 45);
 		getContentPane().add(lblNewLabel_1_6);
 		
 		fname = new JTextField();
+		fname.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		fname.setColumns(10);
-		fname.setBounds(579, 268, 181, 27);
+		fname.setBounds(643, 254, 181, 27);
 		getContentPane().add(fname);
 		
 		lname = new JTextField();
+		lname.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lname.setColumns(10);
-		lname.setBounds(591, 323, 181, 27);
+		lname.setBounds(643, 309, 181, 27);
 		getContentPane().add(lname);
 		
 		age = new JTextField();
+		age.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		age.setColumns(10);
-		age.setBounds(591, 392, 181, 27);
+		age.setBounds(643, 364, 181, 27);
 		getContentPane().add(age);
 		
 		dno = new JTextField();
+		dno.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		dno.setColumns(10);
-		dno.setBounds(579, 447, 181, 27);
+		dno.setBounds(643, 419, 181, 27);
 		getContentPane().add(dno);
 		
 		street = new JTextField();
+		street.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		street.setColumns(10);
-		street.setBounds(579, 502, 181, 27);
+		street.setBounds(643, 473, 181, 27);
 		getContentPane().add(street);
 		
 		City = new JTextField();
+		City.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		City.setColumns(10);
-		City.setBounds(579, 560, 181, 27);
+		City.setBounds(643, 529, 181, 27);
 		getContentPane().add(City);
 		
-		JButton SignUP = new JButton("SignUP");
-		SignUP.setBounds(985, 563, 156, 42);
+		JButton SignUP = new JButton("REGISTER");
+		SignUP.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		SignUP.setBounds(495, 613, 171, 45);
 		getContentPane().add(SignUP);
 		
-		JButton back = new JButton("back");
+		JButton back = new JButton("BACK");
+		back.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login llg = new Login();
@@ -118,8 +130,20 @@ public class signUp extends JFrame{
 				dispose();
 			}
 		});
-		back.setBounds(985, 450, 156, 42);
+		back.setBounds(1027, 196, 156, 42);
 		getContentPane().add(back);
+		
+		JPanel login_heading_panel = new JPanel();
+		login_heading_panel.setLayout(null);
+		login_heading_panel.setBackground(Color.YELLOW);
+		login_heading_panel.setBounds(0, 0, 1266, 65);
+		getContentPane().add(login_heading_panel);
+		
+		JLabel login_heading = new JLabel("College Management System ");
+		login_heading.setForeground(Color.RED);
+		login_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+		login_heading.setBounds(370, 10, 614, 46);
+		login_heading_panel.add(login_heading);
 		SignUP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
