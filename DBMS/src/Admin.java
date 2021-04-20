@@ -43,7 +43,7 @@ public class Admin extends JFrame{
 					String sql = "select sid,sname,sage,sdno,sstr,scity,bname from student,bhavan where bvno = bid";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"sid","Name","Age","Dno","Street","City","bname"};//column names
+			    	String stt[] = {"ID","Name","Age","Dno","Street","City","Bhavan"};//column names
 				    while(rs.next()){
 						String st1 = String.valueOf(rs.getInt("sid"));
 						String st2=rs.getString("sname");
@@ -105,7 +105,7 @@ public class Admin extends JFrame{
 					String sql = " select tid,tname,tlname,tdno,tstr,tcity,tage,tsal,cname,dname from teacher ,course ,depnt where cono  = cid and depntno = depntid";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"Tid","Fname","LName","Age","DoorNo","Street","City","Salary","Course","Dept"};
+			    	String stt[] = {"ID","Fname","LName","Age","DoorNo","Street","City","Salary","Course","Dept"};
 				    while(rs.next()){
 						String st1 = String.valueOf(rs.getInt("tid"));
 						String st2=rs.getString("tname");
@@ -172,7 +172,7 @@ public class Admin extends JFrame{
 					String sql = "select cname,taname,taage,tasal from course,teach_assistant where cno = cid";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"cname","taname","taage","tasal"};//column names
+			    	String stt[] = {"Course","Name","Age","Salary"};//column names
 				    while(rs.next()){
 						String st1=rs.getString("cname");
 						String st2 = rs.getString("taname");
@@ -222,7 +222,7 @@ public class Admin extends JFrame{
 					String sql = "select * from course";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"cid","cname","credits"};
+			    	String stt[] = {"ID","Name","Credits"};
 				    while(rs.next()){
 						String st1 = String.valueOf(rs.getInt("cid"));
 						String st2=rs.getString("cname");
@@ -318,7 +318,7 @@ public class Admin extends JFrame{
 					String sql = "select * from event";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"eid","ename","strdate","enddate","efee","eco"};
+			    	String stt[] = {"ID","Name","Start","End","Fee","EcoID"};
 				    while(rs.next()){
 						String eid = String.valueOf(rs.getInt("eid"));
 						String ename =rs.getString("ename");
@@ -373,7 +373,7 @@ public class Admin extends JFrame{
 					String sql = "select jid,jname,salary,age,bname from janitor, bhavan where bvid = bid";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"jid","jname","salary","age","bname"};
+			    	String stt[] = {"ID","Name","Salary","Age","Bhavan"};
 				    while(rs.next()){
 						String st1 = String.valueOf(rs.getInt("jid"));
 						String st2 =rs.getString("jname");
