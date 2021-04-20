@@ -118,7 +118,7 @@ public class signUp extends JFrame{
 		
 		JButton SignUP = new JButton("REGISTER");
 		SignUP.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		SignUP.setBounds(495, 613, 171, 45);
+		SignUP.setBounds(495, 613, 199, 60);
 		getContentPane().add(SignUP);
 		
 		JButton back = new JButton("BACK");
@@ -130,7 +130,7 @@ public class signUp extends JFrame{
 				dispose();
 			}
 		});
-		back.setBounds(1027, 196, 156, 42);
+		back.setBounds(44, 622, 156, 42);
 		getContentPane().add(back);
 		
 		JPanel login_heading_panel = new JPanel();
