@@ -18,6 +18,8 @@ public class Admin_View extends JFrame {
 	protected JPanel contentPane;
 	protected JButton Ad_v_edit;
 	protected JPanel jjpanel;
+	private JPanel admin_view_headingPanel;
+	private JLabel admin_view_heading;
 
 	/**
 	 * Launch the application.
@@ -42,6 +44,7 @@ public class Admin_View extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280,720);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.CYAN);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -88,7 +91,20 @@ public class Admin_View extends JFrame {
 		contentPane.add(Ad_v_back);
 		
 		jjpanel = new JPanel();
-		jjpanel.setBounds(189, 162, 1067, 511);
+		jjpanel.setBackground(Color.CYAN);
+		jjpanel.setBounds(217, 162, 867, 511);
 		contentPane.add(jjpanel);
+		
+		admin_view_headingPanel = new JPanel();
+		admin_view_headingPanel.setLayout(null);
+		admin_view_headingPanel.setBackground(Color.YELLOW);
+		admin_view_headingPanel.setBounds(0, 0, 1266, 65);
+		contentPane.add(admin_view_headingPanel);
+		
+		admin_view_heading = new JLabel("Admin Management System ");
+		admin_view_heading.setForeground(Color.RED);
+		admin_view_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+		admin_view_heading.setBounds(381, 10, 614, 46);
+		admin_view_headingPanel.add(admin_view_heading);
 	}
 }

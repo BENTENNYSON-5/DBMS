@@ -10,14 +10,15 @@ import java.awt.EventQueue;
 public class Admin extends JFrame{
 	private String s;
 	public Admin() {
+		getContentPane().setBackground(Color.CYAN);
 		setSize(1280,720);
 		getContentPane().setLayout(null);
-		JLabel adm_lb_1 = new JLabel("ADMIN HOME");
+		JLabel adm_lb_1 = new JLabel("HOME");
 		adm_lb_1.setForeground(Color.RED);
 		adm_lb_1.setBackground(Color.YELLOW);
 		adm_lb_1.setHorizontalAlignment(SwingConstants.CENTER);
 		adm_lb_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		adm_lb_1.setBounds(10, 10, 1234, 55);
+		adm_lb_1.setBounds(525, 77, 186, 37);
 		getContentPane().add(adm_lb_1);
 		JButton vstu = new JButton("Students");
 		vstu.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -33,7 +34,7 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setHorizontalAlignment(SwingConstants.CENTER);
 				Ad_v_info_label.setForeground(Color.RED);
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
-				Ad_v_info_label.setBounds(27, 10, 1229, 46);
+				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				adv.Ad_v_edit.setVisible(false);
 				//querycodetable
@@ -42,7 +43,7 @@ public class Admin extends JFrame{
 					String sql = "select sid,sname,sage,sdno,sstr,scity,bname from student,bhavan where bvno = bid";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"sid","sname","sage","sdno","sstr","scity","bname"};//column names
+			    	String stt[] = {"sid","Name","Age","Dno","Street","City","bname"};//column names
 				    while(rs.next()){
 						String st1 = String.valueOf(rs.getInt("sid"));
 						String st2=rs.getString("sname");
@@ -95,7 +96,7 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setHorizontalAlignment(SwingConstants.CENTER);
 				Ad_v_info_label.setForeground(Color.RED);
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
-				Ad_v_info_label.setBounds(27, 10, 1229, 46);
+				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
 				try {
@@ -104,7 +105,7 @@ public class Admin extends JFrame{
 					String sql = " select tid,tname,tlname,tdno,tstr,tcity,tage,tsal,cname,dname from teacher ,course ,depnt where cono  = cid and depntno = depntid";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-			    	String stt[] = {"tid","tname","tlname","tdno","tstr","tcity","tage","tsal","cname","dname"};
+			    	String stt[] = {"Tid","Fname","LName","Age","DoorNo","Street","City","Salary","Course","Dept"};
 				    while(rs.next()){
 						String st1 = String.valueOf(rs.getInt("tid"));
 						String st2=rs.getString("tname");
@@ -163,7 +164,7 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setHorizontalAlignment(SwingConstants.CENTER);
 				Ad_v_info_label.setForeground(Color.RED);
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
-				Ad_v_info_label.setBounds(27, 10, 1229, 46);
+				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
 				try {
@@ -213,7 +214,7 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setHorizontalAlignment(SwingConstants.CENTER);
 				Ad_v_info_label.setForeground(Color.RED);
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
-				Ad_v_info_label.setBounds(27, 10, 1229, 46);
+				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
 				try {
@@ -309,7 +310,7 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setHorizontalAlignment(SwingConstants.CENTER);
 				Ad_v_info_label.setForeground(Color.RED);
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
-				Ad_v_info_label.setBounds(27, 10, 1229, 46);
+				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				//querycodetable
 				try {
@@ -363,7 +364,7 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setHorizontalAlignment(SwingConstants.CENTER);
 				Ad_v_info_label.setForeground(Color.RED);
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
-				Ad_v_info_label.setBounds(27, 10, 1229, 46);
+				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
 				adv.Ad_v_edit.setVisible(false);
 				//querycodetable
@@ -416,6 +417,18 @@ public class Admin extends JFrame{
 		Alogout.setForeground(Color.RED);
 		Alogout.setBounds(1082, 584, 132, 53);
 		getContentPane().add(Alogout);
+		
+		JPanel tea_headingPanel = new JPanel();
+		tea_headingPanel.setLayout(null);
+		tea_headingPanel.setBackground(Color.YELLOW);
+		tea_headingPanel.setBounds(0, 0, 1266, 65);
+		getContentPane().add(tea_headingPanel);
+		
+		JLabel tea_heading = new JLabel("Admin Management System ");
+		tea_heading.setForeground(Color.RED);
+		tea_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+		tea_heading.setBounds(367, 10, 614, 46);
+		tea_headingPanel.add(tea_heading);
 	}
 
 	public static void main(String[] args) {

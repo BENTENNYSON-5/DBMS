@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 //code
 public class Admin_ACou extends JFrame {
 
@@ -41,30 +42,31 @@ public class Admin_ACou extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280,720);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.CYAN);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		String[] CourseCombo = {"Mathematics","Biology","Physics","Chemistry","Economics","Commerce","English","German","French","Sanskrit"};
 		JComboBox AACcomboBox = new JComboBox(CourseCombo);
 		AACcomboBox.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		AACcomboBox.setBounds(541, 71, 242, 64);
+		AACcomboBox.setBounds(596, 155, 242, 64);
 		contentPane.add(AACcomboBox);
 		
 		JLabel lblNewLabel = new JLabel("Select Course");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel.setBounds(324, 71, 166, 64);
+		lblNewLabel.setBounds(336, 155, 166, 64);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblSetCredits = new JLabel("Set Credits");
 		lblSetCredits.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblSetCredits.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSetCredits.setBounds(324, 248, 166, 64);
+		lblSetCredits.setBounds(336, 262, 146, 37);
 		contentPane.add(lblSetCredits);
 		
 		AACCredits = new JTextField();
 		AACCredits.setHorizontalAlignment(SwingConstants.CENTER);
 		AACCredits.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		AACCredits.setBounds(541, 249, 203, 64);
+		AACCredits.setBounds(596, 249, 203, 64);
 		contentPane.add(AACCredits);
 		AACCredits.setColumns(10);
 		
@@ -87,7 +89,19 @@ public class Admin_ACou extends JFrame {
 			}
 		});
 		AACDone.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		AACDone.setBounds(631, 439, 153, 52);
+		AACDone.setBounds(485, 429, 153, 52);
 		contentPane.add(AACDone);
+		
+		JPanel admin_acou_heading_panel = new JPanel();
+		admin_acou_heading_panel.setBackground(Color.YELLOW);
+		admin_acou_heading_panel.setBounds(0, 0, 1266, 65);
+		contentPane.add(admin_acou_heading_panel);
+		admin_acou_heading_panel.setLayout(null);
+		
+		JLabel tea_heading = new JLabel("Admin Management System ");
+		tea_heading.setForeground(Color.RED);
+		tea_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+		tea_heading.setBounds(311, 10, 614, 46);
+		admin_acou_heading_panel.add(tea_heading);
 	}
 }
