@@ -1,9 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.CardLayout;
 import java.sql.*;
 public class student extends JFrame {
 	private JTextField joinevent_field;
@@ -29,27 +27,28 @@ public class student extends JFrame {
 			getContentPane().setLayout(null);
 			
 			JPanel student_content_panel2 = new JPanel();
-			student_content_panel2.setBounds(0, 111, 202, 570);
+			student_content_panel2.setBounds(0, 110, 186, 570);
+			student_content_panel2.setBackground(new Color(127, 255, 212));
 			getContentPane().add(student_content_panel2);
 			student_content_panel2.setLayout(null);
 			
 			JButton student_profile_button = new JButton("PROFILE");
 			student_profile_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_profile_button.setBounds(0, 0, 202, 45);
+			student_profile_button.setBounds(0, 0, 186, 60);
 			student_content_panel2.add(student_profile_button);
 			
 			JButton student_courses = new JButton("COURSES");
 			student_courses.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_courses.setBounds(0, 45, 202, 45);
+			student_courses.setBounds(0, 60, 186, 60);
 			student_content_panel2.add(student_courses);
 			
 			JButton student_events = new JButton("EVENTS");
 			student_events.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_events.setBounds(0, 90, 202, 45);
+			student_events.setBounds(0, 120, 186, 60);
 			student_content_panel2.add(student_events);
 			JButton student_grades = new JButton("GRADES");
 			student_grades.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_grades.setBounds(0, 135, 202, 45);
+			student_grades.setBounds(0, 180, 186, 60);
 			student_content_panel2.add(student_grades);
 			
 			JButton student_logout = new JButton("LOG OUT");
@@ -65,27 +64,30 @@ public class student extends JFrame {
 			
 			JButton joinevents_button = new JButton("JOIN EVENTS");
 			joinevents_button.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			joinevents_button.setBounds(0, 180, 202, 45);
+			joinevents_button.setBounds(0, 240, 187, 60);
 			student_content_panel2.add(joinevents_button);
 			
 			JPanel student_heading = new JPanel();
+			student_heading.setBackground(Color.YELLOW);
 			student_heading.setBounds(0, 0, 1266, 65);
 			getContentPane().add(student_heading);
 			student_heading.setLayout(null);
 			
 			JLabel student_label_heading = new JLabel("STUDENT MANAGEMENT SYSTEM");
-			student_label_heading.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_label_heading.setBounds(335, 10, 614, 46);
+			student_label_heading.setForeground(Color.RED);
+			student_label_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
+			student_label_heading.setBounds(321, 10, 727, 45);
 			student_heading.add(student_label_heading);
 			
 			JPanel student_content_panel1 = new JPanel();
-			student_content_panel1.setBounds(0, 65, 202, 45);
+			student_content_panel1.setBackground(new Color(127, 255, 0));
+			student_content_panel1.setBounds(0, 65, 186, 45);
 			getContentPane().add(student_content_panel1);
 			student_content_panel1.setLayout(null);
 			
 			JLabel student_content = new JLabel("CONTENTS");
 			student_content.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 21));
-			student_content.setBounds(22, 10, 143, 25);
+			student_content.setBounds(33, 10, 143, 25);
 			student_content_panel1.add(student_content);
 			
 			JLayeredPane student_layeredPane = new JLayeredPane();
@@ -94,6 +96,7 @@ public class student extends JFrame {
 			student_layeredPane.setLayout(new CardLayout(0, 0));
 			
 			JPanel student_profile_panel = new JPanel();
+			student_profile_panel.setBackground(Color.CYAN);
 			student_layeredPane.add(student_profile_panel, "name_164213450574300");
 			student_profile_panel.setLayout(null);
 			
@@ -194,6 +197,7 @@ public class student extends JFrame {
 			    }  
 			    });
 			JPanel student_grades_panel = new JPanel();
+			student_grades_panel.setBackground(Color.CYAN);
 			student_layeredPane.add(student_grades_panel, "name_164213488408800");
 			student_grades_panel.setLayout(null);
 			
@@ -217,6 +221,7 @@ public class student extends JFrame {
 			    }  
 			    });
 			JPanel student_event_panel = new JPanel();
+			student_event_panel.setBackground(Color.CYAN);
 			student_layeredPane.add(student_event_panel, "name_164213527612100");
 			student_event_panel.setLayout(null);
 			JTextArea event_area = new JTextArea();
@@ -247,6 +252,7 @@ public class student extends JFrame {
 			    }  
 			    });
 			JPanel student_courses_panel = new JPanel();
+			student_courses_panel.setBackground(Color.CYAN);
 			student_layeredPane.add(student_courses_panel, "name_164213581621300");
 			student_courses_panel.setLayout(null);
 			
@@ -255,6 +261,7 @@ public class student extends JFrame {
 			student_courses_panel.add(student_courses_area);
 			
 			JPanel student_joinevents_panel = new JPanel();
+			student_joinevents_panel.setBackground(Color.CYAN);
 			student_layeredPane.add(student_joinevents_panel, "name_326041342741000");
 			student_joinevents_panel.setLayout(null);
 			

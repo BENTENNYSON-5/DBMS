@@ -72,7 +72,7 @@ public class ta extends JFrame {
 		ta_contentPane.add(ta_headingPanel);
 		ta_headingPanel.setLayout(null);
 		
-		JLabel ta_heading = new JLabel("Teaching Assistant's Management System ");
+		JLabel ta_heading = new JLabel("Teaching Assistant Management System ");
 		ta_heading.setBounds(255, 10, 823, 46);
 		ta_heading.setForeground(Color.RED);
 		ta_heading.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
