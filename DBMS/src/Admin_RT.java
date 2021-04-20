@@ -294,5 +294,9 @@ public class Admin_RT extends JFrame {
 		RTaddcitf.setColumns(10);
 		RTaddcitf.setBounds(333, 540, 179, 50);
 		contentPane.add(RTaddcitf);
+		
+		JButton bacck = new JButton("Back");
+		bacck.setBounds(36, 618, 156, 42);
+		contentPane.add(bacck);
 	}
 }

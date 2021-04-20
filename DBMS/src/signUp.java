@@ -109,6 +109,17 @@ public class signUp extends JFrame{
 		JButton SignUP = new JButton("SignUP");
 		SignUP.setBounds(985, 563, 156, 42);
 		getContentPane().add(SignUP);
+		
+		JButton back = new JButton("back");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login llg = new Login();
+				llg.setVisible(true);
+				dispose();
+			}
+		});
+		back.setBounds(985, 450, 156, 42);
+		getContentPane().add(back);
 		SignUP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

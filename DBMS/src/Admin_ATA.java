@@ -209,5 +209,9 @@ public class Admin_ATA extends JFrame {
 		ATAcpanel.setBackground(Color.BLUE);
 		ATAcpanel.setBounds(592, 0, 28, 683);
 		contentPane.add(ATAcpanel);
+		
+		JButton bacck = new JButton("Back");
+		bacck.setBounds(77, 572, 156, 42);
+		contentPane.add(bacck);
 	}
 }

@@ -203,6 +203,10 @@ public class Admin_EVE extends JFrame {
 		EVEaddcoIDtf.setColumns(10);
 		EVEaddcoIDtf.setBounds(940, 517, 179, 50);
 		contentPane.add(EVEaddcoIDtf);
+		
+		JButton bacck = new JButton("Back");
+		bacck.setBounds(60, 620, 156, 42);
+		contentPane.add(bacck);
 	}
 
 }
