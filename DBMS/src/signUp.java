@@ -125,7 +125,7 @@ public class signUp extends JFrame{
 		back.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login llg = new Login();
+				firstScreen llg = new firstScreen();
 				llg.setVisible(true);
 				dispose();
 			}

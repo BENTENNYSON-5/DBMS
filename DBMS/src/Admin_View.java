@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 public class Admin_View extends JFrame {
 
 	protected JPanel contentPane;
-	protected JButton Ad_v_edit;
 	protected JPanel jjpanel;
 	private JPanel admin_view_headingPanel;
 	private JLabel admin_view_heading;
@@ -48,19 +47,6 @@ public class Admin_View extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
-		Ad_v_edit = new JButton("EDIT");
-		Ad_v_edit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Admin ad = new Admin();
-				ad.setVisible(true);
-				dispose();
-			}
-		});
-		Ad_v_edit.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		Ad_v_edit.setBounds(27, 162, 152, 59);
-		contentPane.add(Ad_v_edit);
 		
 		JButton Ad_v_lo = new JButton("LOGOUT");
 		Ad_v_lo.setBackground(Color.YELLOW);

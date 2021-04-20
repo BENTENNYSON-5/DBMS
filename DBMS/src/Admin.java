@@ -36,7 +36,6 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
 				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
-				adv.Ad_v_edit.setVisible(false);
 				//querycodetable
 				try {
 					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");
@@ -366,7 +365,6 @@ public class Admin extends JFrame{
 				Ad_v_info_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 38));
 				Ad_v_info_label.setBounds(27, 70, 1229, 46);
 				adv.contentPane.add(Ad_v_info_label);
-				adv.Ad_v_edit.setVisible(false);
 				//querycodetable
 				try {
 					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","ororacle");

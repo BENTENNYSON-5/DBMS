@@ -93,7 +93,6 @@ class Login extends JFrame{
 						Statement st=con.createStatement();
 						String sql="select * from login_cred";
 						rs=st.executeQuery(sql);
-						System.out.println(String.valueOf(password.getPassword())); 
 						while(rs.next())
 						{
 							String dum1=userid.getText(),dum2=rs.getString(1),dum3=rs.getString(2);
